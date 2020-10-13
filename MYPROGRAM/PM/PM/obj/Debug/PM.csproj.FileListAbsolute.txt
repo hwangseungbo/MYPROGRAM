@@ -17,3 +17,13 @@ C:\Users\SARADA\Desktop\PM\PM\obj\Debug\PM.csproj.GenerateResource.cache
 C:\Users\SARADA\Desktop\PM\PM\obj\Debug\PM.csproj.CoreCompileInputs.cache
 C:\Users\SARADA\Desktop\PM\PM\obj\Debug\PM.exe
 C:\Users\SARADA\Desktop\PM\PM\obj\Debug\PM.pdb
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\bin\Debug\PM.exe.config
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\bin\Debug\PM.exe
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\bin\Debug\PM.pdb
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Debug\PM.csprojAssemblyReference.cache
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Debug\PM.Form1.resources
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Debug\PM.Properties.Resources.resources
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Debug\PM.csproj.GenerateResource.cache
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Debug\PM.csproj.CoreCompileInputs.cache
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Debug\PM.exe
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Debug\PM.pdb

@@ -217,7 +217,7 @@ namespace DummyMaker
             Bitmap newImage = new Bitmap(targetX, targetY);
             using (Graphics g = Graphics.FromImage(newImage))
             {
-                g.FillRectangle(Brushes.BlanchedAlmond, 0, 0, newImage.Width, newImage.Height);   //원본 16:9 (HD 1280 * 720)에서 가로 혹은 세로에 비율을 맞춘뒤 남는곳은 브러쉬 색으로 사각형을 만들어색칠함.
+                g.FillRectangle(Brushes.Black, 0, 0, newImage.Width, newImage.Height);   //원본 16:9 (HD 1280 * 720)에서 가로 혹은 세로에 비율을 맞춘뒤 남는곳은 브러쉬 색으로 사각형을 만들어색칠함.
                 g.DrawImage(originalImage, 0, 0, newWidth, newHeight);
             }
 
@@ -551,6 +551,8 @@ namespace DummyMaker
                         SystemSounds.Beep.Play();
                     }
                 }
+
+
 
             }
         }
