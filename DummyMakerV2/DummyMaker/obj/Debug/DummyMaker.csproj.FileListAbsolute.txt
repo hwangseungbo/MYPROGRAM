@@ -48,3 +48,13 @@ C:\Users\SARADA\Desktop\DummyMakerV2\DummyMaker\obj\Debug\DummyMaker.csproj.Gene
 C:\Users\SARADA\Desktop\DummyMakerV2\DummyMaker\obj\Debug\DummyMaker.csproj.CoreCompileInputs.cache
 C:\Users\SARADA\Desktop\DummyMakerV2\DummyMaker\obj\Debug\DummyMaker.exe
 C:\Users\SARADA\Desktop\DummyMakerV2\DummyMaker\obj\Debug\DummyMaker.pdb
+C:\Users\SARADA\Source\Repos\hwangseungbo\MYPROGRAM\DummyMakerV2\DummyMaker\bin\Debug\DummyMaker.exe.config
+C:\Users\SARADA\Source\Repos\hwangseungbo\MYPROGRAM\DummyMakerV2\DummyMaker\bin\Debug\DummyMaker.exe
+C:\Users\SARADA\Source\Repos\hwangseungbo\MYPROGRAM\DummyMakerV2\DummyMaker\bin\Debug\DummyMaker.pdb
+C:\Users\SARADA\Source\Repos\hwangseungbo\MYPROGRAM\DummyMakerV2\DummyMaker\obj\Debug\DummyMaker.csprojAssemblyReference.cache
+C:\Users\SARADA\Source\Repos\hwangseungbo\MYPROGRAM\DummyMakerV2\DummyMaker\obj\Debug\DummyMaker.Form1.resources
+C:\Users\SARADA\Source\Repos\hwangseungbo\MYPROGRAM\DummyMakerV2\DummyMaker\obj\Debug\DummyMaker.Properties.Resources.resources
+C:\Users\SARADA\Source\Repos\hwangseungbo\MYPROGRAM\DummyMakerV2\DummyMaker\obj\Debug\DummyMaker.csproj.GenerateResource.cache
+C:\Users\SARADA\Source\Repos\hwangseungbo\MYPROGRAM\DummyMakerV2\DummyMaker\obj\Debug\DummyMaker.csproj.CoreCompileInputs.cache
+C:\Users\SARADA\Source\Repos\hwangseungbo\MYPROGRAM\DummyMakerV2\DummyMaker\obj\Debug\DummyMaker.exe
+C:\Users\SARADA\Source\Repos\hwangseungbo\MYPROGRAM\DummyMakerV2\DummyMaker\obj\Debug\DummyMaker.pdb

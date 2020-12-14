@@ -1467,33 +1467,28 @@ namespace PM
             }
         }
 
-        //최소화 버튼
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         //프로그램 종료 버튼
         private void button1_Click(object sender, EventArgs e)
         {
-            SystemSounds.Beep.Play();
-            if (MessageBox.Show("프로그램을 종료하시겠습니까?", "종료", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                try
-                {
-                    for (int i = 0; i <= Proc.Length - 1; i++)
-                    {
-                        if (Proc[i].EnableRaisingEvents == true)
-                        {
-                            Proc[i].Exited -= null;
-                            Proc[i].EnableRaisingEvents = false;
-                        }
-                    }
-                }
-                catch { };
-                LogWrite("PM프로그램이 종료되었습니다.");
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
-            }
+            this.WindowState = FormWindowState.Minimized;
+            //SystemSounds.Beep.Play();
+            //if (MessageBox.Show("프로그램을 종료하시겠습니까?", "종료", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+            //    try
+            //    {
+            //        for (int i = 0; i <= Proc.Length - 1; i++)
+            //        {
+            //            if (Proc[i].EnableRaisingEvents == true)
+            //            {
+            //                Proc[i].Exited -= null;
+            //                Proc[i].EnableRaisingEvents = false;
+            //            }
+            //        }
+            //    }
+            //    catch { };
+            //    LogWrite("PM프로그램이 종료되었습니다.");
+            //    System.Diagnostics.Process.GetCurrentProcess().Kill();
+            //}
         }
 
         //리스트뷰 구성요소 클릭 시 발생이벤트

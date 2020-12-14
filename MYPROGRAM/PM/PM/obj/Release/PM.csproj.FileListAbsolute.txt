@@ -1,0 +1,10 @@
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\bin\Release\PM.exe.config
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\bin\Release\PM.exe
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\bin\Release\PM.pdb
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Release\PM.csprojAssemblyReference.cache
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Release\PM.Form1.resources
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Release\PM.Properties.Resources.resources
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Release\PM.csproj.GenerateResource.cache
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Release\PM.csproj.CoreCompileInputs.cache
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Release\PM.exe
+C:\Users\SARADA\source\repos\hwangseungbo\MYPROGRAM\MYPROGRAM\PM\PM\obj\Release\PM.pdb
