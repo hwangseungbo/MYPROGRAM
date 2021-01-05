@@ -95,6 +95,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.Percentlbl2 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -157,7 +160,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(77, 31);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -533,6 +536,9 @@
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tabPage2.Controls.Add(this.label18);
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.Percentlbl2);
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.Dlabel);
             this.tabPage2.Controls.Add(this.Clabel);
@@ -656,7 +662,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label9.Location = new System.Drawing.Point(604, 289);
+            this.label9.Location = new System.Drawing.Point(594, 270);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(386, 24);
             this.label9.TabIndex = 21;
@@ -717,7 +723,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label12.Location = new System.Drawing.Point(30, 244);
+            this.label12.Location = new System.Drawing.Point(30, 245);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(40, 24);
             this.label12.TabIndex = 24;
@@ -728,7 +734,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label11.Location = new System.Drawing.Point(30, 193);
+            this.label11.Location = new System.Drawing.Point(30, 190);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(40, 24);
             this.label11.TabIndex = 23;
@@ -782,7 +788,7 @@
             this.Daylbl.AutoSize = true;
             this.Daylbl.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Daylbl.ForeColor = System.Drawing.Color.AliceBlue;
-            this.Daylbl.Location = new System.Drawing.Point(76, 244);
+            this.Daylbl.Location = new System.Drawing.Point(76, 245);
             this.Daylbl.Name = "Daylbl";
             this.Daylbl.Size = new System.Drawing.Size(48, 24);
             this.Daylbl.TabIndex = 16;
@@ -804,7 +810,7 @@
             this.Percentlbl.AutoSize = true;
             this.Percentlbl.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Percentlbl.ForeColor = System.Drawing.Color.AliceBlue;
-            this.Percentlbl.Location = new System.Drawing.Point(76, 193);
+            this.Percentlbl.Location = new System.Drawing.Point(76, 190);
             this.Percentlbl.Name = "Percentlbl";
             this.Percentlbl.Size = new System.Drawing.Size(48, 24);
             this.Percentlbl.TabIndex = 14;
@@ -813,9 +819,9 @@
             // ScrollBar2
             // 
             this.ScrollBar2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ScrollBar2.Location = new System.Drawing.Point(237, 242);
+            this.ScrollBar2.Location = new System.Drawing.Point(237, 243);
             this.ScrollBar2.Maximum = 159;
-            this.ScrollBar2.Minimum = 10;
+            this.ScrollBar2.Minimum = 1;
             this.ScrollBar2.Name = "ScrollBar2";
             this.ScrollBar2.Size = new System.Drawing.Size(743, 26);
             this.ScrollBar2.TabIndex = 15;
@@ -825,7 +831,7 @@
             // ScrollBar
             // 
             this.ScrollBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ScrollBar.Location = new System.Drawing.Point(237, 191);
+            this.ScrollBar.Location = new System.Drawing.Point(237, 188);
             this.ScrollBar.Maximum = 104;
             this.ScrollBar.Minimum = 10;
             this.ScrollBar.Name = "ScrollBar";
@@ -864,6 +870,39 @@
             // 
             this.timer2.Interval = 60000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // Percentlbl2
+            // 
+            this.Percentlbl2.AutoSize = true;
+            this.Percentlbl2.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Percentlbl2.ForeColor = System.Drawing.Color.Purple;
+            this.Percentlbl2.Location = new System.Drawing.Point(805, 216);
+            this.Percentlbl2.Name = "Percentlbl2";
+            this.Percentlbl2.Size = new System.Drawing.Size(48, 24);
+            this.Percentlbl2.TabIndex = 31;
+            this.Percentlbl2.Text = "10 %";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label17.Location = new System.Drawing.Point(654, 216);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(155, 24);
+            this.label17.TabIndex = 32;
+            this.label17.Text = "관리 드라이브 용량이";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label18.Location = new System.Drawing.Point(850, 216);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(130, 24);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "를 넘는 경우 삭제";
             // 
             // Form1
             // 
@@ -966,6 +1005,9 @@
         private System.Windows.Forms.Label Clabel;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label Percentlbl2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
     }
 }
 

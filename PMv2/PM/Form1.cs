@@ -305,6 +305,7 @@ namespace PM
                     ScrollBar.Value = Int32.Parse(value[1]);
                     ScrollBar2.Value = Int32.Parse(value[2]);
                     Percentlbl.Text = value[1] + " %";
+                    Percentlbl2.Text = value[1] + " %";
                     Daylbl.Text = value[2] + " 일";
                     if(value[3]=="1")
                     {
@@ -1284,6 +1285,53 @@ namespace PM
             }
         }
 
+        //DM 삭제 로그
+        public void DeleteLogWrite(string str)
+        {
+            lock (lockObject)
+            {
+
+
+                string DirPath = Environment.CurrentDirectory + @"\DeleteLog";
+                string FilePath = DirPath + "\\DeleteLog "+ DateTime.Today.ToString("yyyyMMdd") + ".log";
+                string temp;
+
+                DirectoryInfo di = new DirectoryInfo(DirPath);
+                FileInfo fi = new FileInfo(FilePath);
+
+                try
+                {
+                    if (!di.Exists) Directory.CreateDirectory(DirPath);
+                    if (!fi.Exists)
+                    {
+                        using (StreamWriter sw = new StreamWriter(FilePath))
+                        {
+                            temp = string.Format("{0} {1}", DateTime.Now, str);
+                            sw.WriteLine(temp);
+                            sw.Close();
+                        }
+                        Thread.Sleep(1);
+                    }
+                    else
+                    {
+                        using (StreamWriter sw = File.AppendText(FilePath))
+                        {
+                            temp = string.Format("{0} {1}", DateTime.Now, str);
+                            sw.WriteLine(temp);
+                            sw.Close();
+                        }
+                        Thread.Sleep(1);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+            }
+        }
+
+
+
         //"삭제"버튼 클릭 이벤트
         private void btnDel_Click(object sender, EventArgs e)
         {
@@ -1727,6 +1775,7 @@ namespace PM
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             Percentlbl.Text = ScrollBar.Value.ToString() + " %";
+            Percentlbl2.Text = ScrollBar.Value.ToString() + " %";
         }
         private void hScrollBar1_Scroll_1(object sender, ScrollEventArgs e)
         {
@@ -1799,7 +1848,6 @@ namespace PM
 
                             Thread.Sleep(100);
                         }
-
 
 
                         SystemSounds.Beep.Play();
@@ -1998,7 +2046,7 @@ namespace PM
         //}
 
 
-        //용량단위 삭제 함수
+        //용량별, 기간별 삭제 함수
         List<string> dirList = new List<string>();
         public void capacitydelete()
         {
@@ -2018,9 +2066,10 @@ namespace PM
                     catch { }
                 }
 
-                        string oldestFolder = "";
+                string oldestFolder = "";
                 DirSearch(textBox1.Text);//최하위 폴더정보만 캐치
                 DirectoryInfo dir1 = new DirectoryInfo(dirList[0]);
+
                 if (dirList.Count > 1)
                 {
                     for (int i = 0; i < dirList.Count - 2; i++)
@@ -2038,6 +2087,13 @@ namespace PM
                     oldestFolder = dir1.FullName;
                 }
 
+                //경로 자신폴더마저 삭제하는 바람에 이러한 조건을 추가하였다.
+                if(oldestFolder==textBox1.Text)
+                {
+                    dirList.Clear();
+                    continue;
+                }
+
                 try
                 {
                     FileInfo fi2 = new FileInfo(System.Windows.Forms.Application.StartupPath + @"\DM.txt");
@@ -2045,32 +2101,41 @@ namespace PM
                     int capacity = Int32.Parse(value[1]);
                     string sp = textBox1.Text;
                     string drive = (sp.Substring(0, 1));
+                    string[] files = Directory.GetFiles(oldestFolder);//, $"*.jpg");
 
                     //MessageBox.Show(oldestFolder);
 
                     //기간단위 삭제방식 시작 ---------------------------------------
-                    string[] files = Directory.GetFiles(oldestFolder, $"*.jpg");
-                    
                     foreach (string f in files)
                     {
                         var info = new FileInfo(f);
                         //MessageBox.Show(info.Name);
                         DateTime now = DateTime.Now;
                         TimeSpan time = now - info.CreationTime;
-                        if (Int32.Parse(time.Days.ToString()) > 0)//Int32.Parse(value[2]))
+                        //MessageBox.Show(time.Days.ToString());
+                        if (Int32.Parse(time.Days.ToString()) >=0)//실험용으로 바로삭제시 조건은 ">= 0" 이며 원본 조건은  "> Int32.Parse(value[2])" 이다.
                         {
+                            DeleteLogWrite(f+"를 삭제하였습니다.");
+
                             info.Delete();
                         }
                     }
                     //기간단위 삭제방식 끝 -----------------------------------------
 
+
+                    //용량단위 삭제방식 시작 ---------------------------------------
                     if (drive == "C")
                     {
                         if (progressBarC.Value > capacity)
                         {
                             DirectoryInfo di = new DirectoryInfo(oldestFolder);
+
+                            foreach (string f in files)
+                            {
+                                DeleteLogWrite(f + "를 삭제하였습니다.");
+                            }
+
                             di.Delete(true);
-                            Thread.Sleep(900000);       //최고 오래된 폴더 강제삭제 딜레이 15분
                         }
                     }
                     else if (drive == "D")
@@ -2078,17 +2143,21 @@ namespace PM
                         if (progressBarD.Value > capacity)
                         {
                             DirectoryInfo di = new DirectoryInfo(oldestFolder);
+
+                            foreach (string f in files)
+                            {
+                                DeleteLogWrite(f + "를 삭제하였습니다.");
+                            }
+
                             di.Delete(true);
-                            Thread.Sleep(900000);       //최고 오래된 폴더 강제삭제 딜레이 15분
                         }
                     }
+                    //용량단위 삭제방식 끝------------------------------------------
 
                 }
                 catch { }
 
                 dirList.Clear();
-
-                Thread.Sleep(10000);
             }
         }
 
@@ -2119,7 +2188,7 @@ namespace PM
         }
 
 
-        //텅빈디렉토리 삭제 (폴더만들어진지 이틀이 지낫지만 안에 내용물없으면 삭제시킴.)
+        //텅빈디렉토리 삭제 (폴더만들어진지 하루가 지낫지만 안에 내용물없으면 삭제시킴.)------------------------------------------------------------------------------------------------------------------------
         static void DirFileSearch(string path, string file,int expire)
         {
             try
@@ -2136,8 +2205,10 @@ namespace PM
                         DateTime now = DateTime.Now;
                         TimeSpan time = now - d.CreationTime;
 
-                        if(Int32.Parse(time.Days.ToString()) >= 2)  //폴더만들어진지 이틀이 지낫지만 안에 내용물없으면 삭제시킴.
-                        { 
+                        //MessageBox.Show(time.Days.ToString());    //폴더만들어진지 몇일지났는지 확인하는 메세지
+
+                        if(Int32.Parse(time.Days.ToString()) >= 1)  //폴더만들어진지 이틀이 지낫지만 안에 내용물없으면 삭제시킴.
+                        {
                             d.Delete();
                         }
                         //MessageBox.Show(d.Name + "디렉토리가 삭제되었습니다.");
@@ -2147,6 +2218,7 @@ namespace PM
                         //MessageBox.Show(e.Message);
                     }
                 }
+
 
                 //foreach (string f in files)
                 //{
@@ -2184,7 +2256,7 @@ namespace PM
             }
         }
         
-
+        //비어있는폴더 삭제함수
         public void timer2_Tick(object sender, EventArgs e)
         {
             string DMaddress = "";
@@ -2204,6 +2276,6 @@ namespace PM
             }
             DirFileSearch(DMaddress, "jpg", expire);
         }
-
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
 }
