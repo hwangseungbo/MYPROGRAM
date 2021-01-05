@@ -72,21 +72,21 @@ namespace PM
 
             ////ini파일 쓰기
             ////ini파일은 생성도 해주는 구나.
-            //WritePrivateProfileString("setting", "vision", "true", "C:\\Setting.ini");
-            //WritePrivateProfileString("setting", "value", "3", "C:\\Setting.ini");
-            //WritePrivateProfileString("setting", "vision", "false", "C:\\Setting.ini"); //3줄이 쓰이는게 아니라 섹션과 키가 동일하기에 그 키의 밸류값만 변경됨 즉 vision=false
+            //WritePrivateProfileString("PM", "path", "true", "C:\\Setting.ini");
+            //WritePrivateProfileString("PM", "value", "3", "C:\\Setting.ini");
+            //WritePrivateProfileString("PM", "vision", "false", "C:\\Setting.ini"); //3줄이 쓰이는게 아니라 섹션과 키가 동일하기에 그 키의 밸류값만 변경됨 즉 vision=false
 
             ////ini파일 읽기
-            //StringBuilder Vision = new StringBuilder();
             //StringBuilder Value = new StringBuilder();
+            //StringBuilder Vision = new StringBuilder();
 
             ////Vision과 Value 변수에 저장이 되는구나.
-            //GetPrivateProfileString("setting", "vision", "", Vision, Vision.Capacity, "C:\\Setting.ini");
-            //GetPrivateProfileString("setting", "value", "", Value, Value.Capacity, "C:\\Setting.ini");
+            //GetPrivateProfileString("PM", "value", "", Value, Value.Capacity, "C:\\Setting.ini");
+            //GetPrivateProfileString("PM", "vision", "", Vision, Vision.Capacity, "C:\\Setting.ini");
 
             //// StringBuilder 변수를 .ToString() 으로 출력이 가능하구나.
-            //MessageBox.Show(Vision.ToString());
             //MessageBox.Show(Value.ToString());
+            //MessageBox.Show(Vision.ToString());
 
 
 
@@ -306,6 +306,8 @@ namespace PM
                     ScrollBar2.Value = Int32.Parse(value[2]);
                     Percentlbl.Text = value[1] + " %";
                     Percentlbl2.Text = value[1] + " %";
+                    drivelbl.Text = "   "+textBox1.Text.Substring(0, 1);
+
                     Daylbl.Text = value[2] + " 일";
                     if(value[3]=="1")
                     {
@@ -1768,8 +1770,12 @@ namespace PM
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             dialog.ShowDialog();
             string select_path = dialog.SelectedPath;
+            if(!(select_path==""))
+            {
+                dmStopbtn_Click(sender,e);
+                textBox1.Text = select_path;
+            }
 
-            textBox1.Text = select_path;
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -1821,6 +1827,7 @@ namespace PM
                             dmStartbtn.Enabled = true;
                             dmStartbtn.Image = PM.Properties.Resources.iconmonstr_media_control_48_48__1_;
                             dmStartbtn.BackColor = Color.FromArgb(50, 49, 69);
+                            drivelbl.Text = "   " + textBox1.Text.Substring(0, 1);
 
                             timer2.Stop();
                             dmflag = false;
@@ -1843,6 +1850,7 @@ namespace PM
                             dmStartbtn.Enabled = true;
                             dmStartbtn.Image = PM.Properties.Resources.iconmonstr_media_control_48_48__1_;
                             dmStartbtn.BackColor = Color.FromArgb(50, 49, 69);
+                            drivelbl.Text = "   " + textBox1.Text.Substring(0, 1);
 
                             timer2.Stop();
 
@@ -1851,10 +1859,10 @@ namespace PM
 
 
                         SystemSounds.Beep.Play();
-                        MessageBox.Show("설정이 저장되었습니다.");
+                        //MessageBox.Show("설정이 저장되었습니다.");
                     }
                     catch { }
-
+                        
                 }
                 else
                 {
@@ -1913,6 +1921,8 @@ namespace PM
         bool dmflag = false;
         public void dmStartbtn_Click(object sender, EventArgs e)
         {
+            button3_Click(sender, e);
+
             var drive = new DriveInfo("C");
             int percent = 0;
             int total = (int)(drive.TotalSize / 1000000);
@@ -2113,7 +2123,7 @@ namespace PM
                         DateTime now = DateTime.Now;
                         TimeSpan time = now - info.CreationTime;
                         //MessageBox.Show(time.Days.ToString());
-                        if (Int32.Parse(time.Days.ToString()) >=0)//실험용으로 바로삭제시 조건은 ">= 0" 이며 원본 조건은  "> Int32.Parse(value[2])" 이다.
+                        if (Int32.Parse(time.Days.ToString()) > Int32.Parse(value[2]) && dmflag == true)//실험용으로 바로삭제시 조건은 ">= 0" 이며 원본 조건은  "> Int32.Parse(value[2])" 이다.
                         {
                             DeleteLogWrite(f+"를 삭제하였습니다.");
 
@@ -2126,7 +2136,7 @@ namespace PM
                     //용량단위 삭제방식 시작 ---------------------------------------
                     if (drive == "C")
                     {
-                        if (progressBarC.Value > capacity)
+                        if (progressBarC.Value > capacity && dmflag == true)
                         {
                             DirectoryInfo di = new DirectoryInfo(oldestFolder);
 
@@ -2140,7 +2150,7 @@ namespace PM
                     }
                     else if (drive == "D")
                     {
-                        if (progressBarD.Value > capacity)
+                        if (progressBarD.Value > capacity && dmflag == true)
                         {
                             DirectoryInfo di = new DirectoryInfo(oldestFolder);
 
@@ -2207,7 +2217,7 @@ namespace PM
 
                         //MessageBox.Show(time.Days.ToString());    //폴더만들어진지 몇일지났는지 확인하는 메세지
 
-                        if(Int32.Parse(time.Days.ToString()) >= 1)  //폴더만들어진지 이틀이 지낫지만 안에 내용물없으면 삭제시킴.
+                        if(Int32.Parse(time.Days.ToString()) >= 1)  //폴더만들어진지 하루가 지낫지만 안에 내용물없으면 삭제시킴.
                         {
                             d.Delete();
                         }
@@ -2256,7 +2266,7 @@ namespace PM
             }
         }
         
-        //비어있는폴더 삭제함수
+        //비어있는폴더 삭제함수가 돌아가는 타이머
         public void timer2_Tick(object sender, EventArgs e)
         {
             string DMaddress = "";
@@ -2264,7 +2274,7 @@ namespace PM
 
             FileInfo fi2 = new FileInfo(System.Windows.Forms.Application.StartupPath + @"\DM.txt");
             if (fi2.Exists)
-            {
+            { 
                 try
                 {
                     string[] value = System.IO.File.ReadAllLines(fi2.ToString());

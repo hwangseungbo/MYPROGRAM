@@ -68,6 +68,9 @@
             this.PMTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Percentlbl2 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.Dlabel = new System.Windows.Forms.Label();
             this.Clabel = new System.Windows.Forms.Label();
@@ -95,9 +98,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.Percentlbl2 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.drivelbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -536,6 +537,7 @@
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tabPage2.Controls.Add(this.drivelbl);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label17);
             this.tabPage2.Controls.Add(this.Percentlbl2);
@@ -565,6 +567,39 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "   DM";
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label18.Location = new System.Drawing.Point(824, 216);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(160, 24);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "를 초과하는 경우 삭제";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label17.Location = new System.Drawing.Point(660, 216);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(120, 24);
+            this.label17.TabIndex = 32;
+            this.label17.Text = "드라이브 용량이";
+            // 
+            // Percentlbl2
+            // 
+            this.Percentlbl2.AutoSize = true;
+            this.Percentlbl2.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Percentlbl2.ForeColor = System.Drawing.Color.Purple;
+            this.Percentlbl2.Location = new System.Drawing.Point(779, 216);
+            this.Percentlbl2.Name = "Percentlbl2";
+            this.Percentlbl2.Size = new System.Drawing.Size(48, 24);
+            this.Percentlbl2.TabIndex = 31;
+            this.Percentlbl2.Text = "10 %";
             // 
             // label16
             // 
@@ -662,7 +697,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label9.Location = new System.Drawing.Point(594, 270);
+            this.label9.Location = new System.Drawing.Point(599, 270);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(386, 24);
             this.label9.TabIndex = 21;
@@ -871,38 +906,16 @@
             this.timer2.Interval = 60000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // Percentlbl2
+            // drivelbl
             // 
-            this.Percentlbl2.AutoSize = true;
-            this.Percentlbl2.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Percentlbl2.ForeColor = System.Drawing.Color.Purple;
-            this.Percentlbl2.Location = new System.Drawing.Point(805, 216);
-            this.Percentlbl2.Name = "Percentlbl2";
-            this.Percentlbl2.Size = new System.Drawing.Size(48, 24);
-            this.Percentlbl2.TabIndex = 31;
-            this.Percentlbl2.Text = "10 %";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label17.Location = new System.Drawing.Point(654, 216);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(155, 24);
-            this.label17.TabIndex = 32;
-            this.label17.Text = "관리 드라이브 용량이";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label18.Location = new System.Drawing.Point(850, 216);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(130, 24);
-            this.label18.TabIndex = 33;
-            this.label18.Text = "를 넘는 경우 삭제";
+            this.drivelbl.AutoSize = true;
+            this.drivelbl.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drivelbl.ForeColor = System.Drawing.Color.Purple;
+            this.drivelbl.Location = new System.Drawing.Point(623, 216);
+            this.drivelbl.Name = "drivelbl";
+            this.drivelbl.Size = new System.Drawing.Size(40, 24);
+            this.drivelbl.TabIndex = 34;
+            this.drivelbl.Text = "설정";
             // 
             // Form1
             // 
@@ -1008,6 +1021,7 @@
         private System.Windows.Forms.Label Percentlbl2;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label drivelbl;
     }
 }
 
