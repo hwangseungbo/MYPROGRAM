@@ -68,6 +68,7 @@
             this.PMTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.drivelbl = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.Percentlbl2 = new System.Windows.Forms.Label();
@@ -98,7 +99,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.drivelbl = new System.Windows.Forms.Label();
+            this.deletedelaylbl = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.Daylbl2 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -537,6 +541,10 @@
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tabPage2.Controls.Add(this.label21);
+            this.tabPage2.Controls.Add(this.Daylbl2);
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.deletedelaylbl);
             this.tabPage2.Controls.Add(this.drivelbl);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label17);
@@ -568,6 +576,17 @@
             this.tabPage2.Text = "   DM";
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
+            // drivelbl
+            // 
+            this.drivelbl.AutoSize = true;
+            this.drivelbl.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drivelbl.ForeColor = System.Drawing.Color.Brown;
+            this.drivelbl.Location = new System.Drawing.Point(623, 216);
+            this.drivelbl.Name = "drivelbl";
+            this.drivelbl.Size = new System.Drawing.Size(40, 24);
+            this.drivelbl.TabIndex = 34;
+            this.drivelbl.Text = "설정";
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -594,7 +613,7 @@
             // 
             this.Percentlbl2.AutoSize = true;
             this.Percentlbl2.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Percentlbl2.ForeColor = System.Drawing.Color.Purple;
+            this.Percentlbl2.ForeColor = System.Drawing.Color.Brown;
             this.Percentlbl2.Location = new System.Drawing.Point(779, 216);
             this.Percentlbl2.Name = "Percentlbl2";
             this.Percentlbl2.Size = new System.Drawing.Size(48, 24);
@@ -617,7 +636,7 @@
             this.Dlabel.AutoSize = true;
             this.Dlabel.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Dlabel.ForeColor = System.Drawing.Color.AliceBlue;
-            this.Dlabel.Location = new System.Drawing.Point(500, 426);
+            this.Dlabel.Location = new System.Drawing.Point(563, 434);
             this.Dlabel.Name = "Dlabel";
             this.Dlabel.Size = new System.Drawing.Size(34, 24);
             this.Dlabel.TabIndex = 29;
@@ -628,7 +647,7 @@
             this.Clabel.AutoSize = true;
             this.Clabel.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clabel.ForeColor = System.Drawing.Color.AliceBlue;
-            this.Clabel.Location = new System.Drawing.Point(500, 390);
+            this.Clabel.Location = new System.Drawing.Point(563, 398);
             this.Clabel.Name = "Clabel";
             this.Clabel.Size = new System.Drawing.Size(34, 24);
             this.Clabel.TabIndex = 28;
@@ -639,7 +658,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label15.Location = new System.Drawing.Point(305, 347);
+            this.label15.Location = new System.Drawing.Point(393, 355);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(156, 29);
             this.label15.TabIndex = 27;
@@ -650,7 +669,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label14.Location = new System.Drawing.Point(262, 426);
+            this.label14.Location = new System.Drawing.Point(325, 434);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(67, 24);
             this.label14.TabIndex = 26;
@@ -661,7 +680,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label13.Location = new System.Drawing.Point(262, 390);
+            this.label13.Location = new System.Drawing.Point(325, 398);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(67, 24);
             this.label13.TabIndex = 25;
@@ -669,14 +688,14 @@
             // 
             // progressBarD
             // 
-            this.progressBarD.Location = new System.Drawing.Point(335, 426);
+            this.progressBarD.Location = new System.Drawing.Point(398, 434);
             this.progressBarD.Name = "progressBarD";
             this.progressBarD.Size = new System.Drawing.Size(159, 24);
             this.progressBarD.TabIndex = 24;
             // 
             // progressBarC
             // 
-            this.progressBarC.Location = new System.Drawing.Point(335, 390);
+            this.progressBarC.Location = new System.Drawing.Point(398, 398);
             this.progressBarC.Name = "progressBarC";
             this.progressBarC.Size = new System.Drawing.Size(159, 24);
             this.progressBarC.TabIndex = 23;
@@ -697,7 +716,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label9.Location = new System.Drawing.Point(599, 270);
+            this.label9.Location = new System.Drawing.Point(598, 306);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(386, 24);
             this.label9.TabIndex = 21;
@@ -729,9 +748,9 @@
             // 
             this.button3.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.button3.Location = new System.Drawing.Point(770, 385);
+            this.button3.Location = new System.Drawing.Point(828, 411);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(210, 80);
+            this.button3.Size = new System.Drawing.Size(152, 54);
             this.button3.TabIndex = 18;
             this.button3.Text = "설정저장";
             this.button3.UseVisualStyleBackColor = true;
@@ -906,16 +925,49 @@
             this.timer2.Interval = 60000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // drivelbl
+            // deletedelaylbl
             // 
-            this.drivelbl.AutoSize = true;
-            this.drivelbl.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drivelbl.ForeColor = System.Drawing.Color.Purple;
-            this.drivelbl.Location = new System.Drawing.Point(623, 216);
-            this.drivelbl.Name = "drivelbl";
-            this.drivelbl.Size = new System.Drawing.Size(40, 24);
-            this.drivelbl.TabIndex = 34;
-            this.drivelbl.Text = "설정";
+            this.deletedelaylbl.AutoSize = true;
+            this.deletedelaylbl.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.deletedelaylbl.ForeColor = System.Drawing.Color.Brown;
+            this.deletedelaylbl.Location = new System.Drawing.Point(824, 365);
+            this.deletedelaylbl.Name = "deletedelaylbl";
+            this.deletedelaylbl.Size = new System.Drawing.Size(137, 19);
+            this.deletedelaylbl.TabIndex = 35;
+            this.deletedelaylbl.Text = "동작 대기중...";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label19.Location = new System.Drawing.Point(726, 269);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(60, 24);
+            this.label19.TabIndex = 36;
+            this.label19.Text = "파일이 ";
+            // 
+            // Daylbl2
+            // 
+            this.Daylbl2.AutoSize = true;
+            this.Daylbl2.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Daylbl2.ForeColor = System.Drawing.Color.Brown;
+            this.Daylbl2.Location = new System.Drawing.Point(779, 269);
+            this.Daylbl2.Name = "Daylbl2";
+            this.Daylbl2.Size = new System.Drawing.Size(48, 24);
+            this.Daylbl2.TabIndex = 37;
+            this.Daylbl2.Text = "10 일";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label21.Location = new System.Drawing.Point(835, 269);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(145, 24);
+            this.label21.TabIndex = 38;
+            this.label21.Text = "이 지나는 경우 삭제";
             // 
             // Form1
             // 
@@ -1022,6 +1074,10 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label drivelbl;
+        private System.Windows.Forms.Label deletedelaylbl;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label Daylbl2;
+        private System.Windows.Forms.Label label19;
     }
 }
 

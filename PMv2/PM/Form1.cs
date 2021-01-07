@@ -309,7 +309,8 @@ namespace PM
                     drivelbl.Text = "   "+textBox1.Text.Substring(0, 1);
 
                     Daylbl.Text = value[2] + " 일";
-                    if(value[3]=="1")
+                    Daylbl2.Text = Daylbl.Text;
+                    if (value[3]=="1")
                     {
                         dmStartbtn_Click(sender,e);
                     }
@@ -1786,6 +1787,7 @@ namespace PM
         private void hScrollBar1_Scroll_1(object sender, ScrollEventArgs e)
         {
             Daylbl.Text = ScrollBar2.Value.ToString() + " 일";
+            Daylbl2.Text = Daylbl.Text;
         }
       
         //DM탭 클릭시
@@ -1831,6 +1833,7 @@ namespace PM
 
                             timer2.Stop();
                             dmflag = false;
+                            deletedelaylbl.Text = "동작 대기중...";
                             Thread.Sleep(100);
                         }
                         else
@@ -1853,7 +1856,8 @@ namespace PM
                             drivelbl.Text = "   " + textBox1.Text.Substring(0, 1);
 
                             timer2.Stop();
-
+                            dmflag = false;
+                            deletedelaylbl.Text = "동작 대기중...";
                             Thread.Sleep(100);
                         }
 
@@ -2020,6 +2024,8 @@ namespace PM
             dmflag = false;
             timer2.Stop();
 
+            deletedelaylbl.Text = "동작 대기중...";
+
             try
             {
                 string[] value = System.IO.File.ReadAllLines(FilePath.ToString());
@@ -2062,7 +2068,24 @@ namespace PM
         {
             while (dmflag==true)
             {
-                Thread.Sleep(4000); //각 드라이브 용량정보 가져오는게 2초마다이므로 용량정보 가져오기전에 비교하면 다삭제해버리니 이렇게 안전장치를 설치한다.
+                for(int i = 10; i>=0; i--)
+                {
+                    if(dmflag==true)
+                    {
+                        deletedelaylbl.Text = $"삭제 진행까지 {i}"+"초";
+                        Thread.Sleep(1000);
+                    }
+                    else if (dmflag == false) 
+                    {
+                        deletedelaylbl.Text = "동작 대기중...";
+                    }
+                }
+                if (dmflag == true)
+                    deletedelaylbl.Text = "삭제 중...";
+                else
+                    deletedelaylbl.Text = "동작 대기중...";
+                //Thread.Sleep(10000); //각 드라이브 용량정보 가져오는게 2초마다이므로 용량정보 가져오기전에 비교하면 다삭제해버리니 이렇게 안전장치를 설치한다.
+
                 string DMaddress;
 
                 FileInfo fi3 = new FileInfo(System.Windows.Forms.Application.StartupPath + @"\DM.txt");
@@ -2077,28 +2100,34 @@ namespace PM
                 }
 
                 string oldestFolder = "";
+                string oldestFolder2 = "";
                 DirSearch(textBox1.Text);//최하위 폴더정보만 캐치
-                DirectoryInfo dir1 = new DirectoryInfo(dirList[0]);
+                DirectoryInfo dir1 = new DirectoryInfo(dirList[0]); //최하위 폴더중 가장 앞에놈이 들어간다.
+                DirectoryInfo dir2 = new DirectoryInfo(dirList[0]);
+                oldestFolder = dirList[0];
 
+
+                // 이범위 부분은 최하위중 생성날짜를 비교하여 가장 오래전생성된 폴더를 올디스트에 넣는 과정인데 이것은 생략해야한다. 왜냐하면 장애가 발생했다가 복구시 밀린데이터가 들어오는데 이렇게되면 과거시간대의 폴더의 생성날짜가 더 최신이기때문이다.
+                //다시 사용하기로함 기간방식에선 결국 가장오래 남아있는 불량 폴더들의 내용물을 지우기위해.
                 if (dirList.Count > 1)
                 {
                     for (int i = 0; i < dirList.Count - 2; i++)
                     {
-                        DirectoryInfo dir2 = new DirectoryInfo(dirList[i + 1]);
-                        if (DateTime.Compare(dir1.CreationTime, dir2.CreationTime) > 0)
+                        DirectoryInfo dir3 = new DirectoryInfo(dirList[i + 1]);
+                        if (DateTime.Compare(dir2.CreationTime, dir3.CreationTime) > 0)//최하위 폴더에 여러폴더가 존재하면 이를 비교하여 가장 오래전만든 폴더를 dir2 변수에 저장 후 oldestFolder변수에 저장하게된다.
                         {
-                            dir1 = dir2;
+                            dir2 = dir3;
                         }
                     }
-                    oldestFolder = dir1.FullName;
+                    oldestFolder2 = dir2.FullName;
                 }
                 else if (dirList.Count == 1)
                 {
-                    oldestFolder = dir1.FullName;
+                    oldestFolder2 = dir2.FullName;
                 }
 
                 //경로 자신폴더마저 삭제하는 바람에 이러한 조건을 추가하였다.
-                if(oldestFolder==textBox1.Text)
+                if (oldestFolder==textBox1.Text)
                 {
                     dirList.Clear();
                     continue;
@@ -2112,47 +2141,172 @@ namespace PM
                     string sp = textBox1.Text;
                     string drive = (sp.Substring(0, 1));
                     string[] files = Directory.GetFiles(oldestFolder);//, $"*.jpg");
+                    string[] files2 = Directory.GetFiles(oldestFolder2);
 
-                    //MessageBox.Show(oldestFolder);
+                    //MessageBox.Show(oldestFolder);  //용량단위에서 쓰일 올디스트폴더 이름순서상 앞에 
+                    //MessageBox.Show(oldestFolder2);  //기간단위에서 쓰일 올디스트폴더2 레알로 시간순서비교해서 가장오래된거
 
-                    //기간단위 삭제방식 시작 ---------------------------------------
-                    foreach (string f in files)
+
+                    //기간 단위 삭제방식 ---------------------------------------------
+                    foreach (string f in files2)
                     {
                         var info = new FileInfo(f);
                         //MessageBox.Show(info.Name);
                         DateTime now = DateTime.Now;
                         TimeSpan time = now - info.CreationTime;
                         //MessageBox.Show(time.Days.ToString());
+
                         if (Int32.Parse(time.Days.ToString()) > Int32.Parse(value[2]) && dmflag == true)//실험용으로 바로삭제시 조건은 ">= 0" 이며 원본 조건은  "> Int32.Parse(value[2])" 이다.
                         {
-                            DeleteLogWrite(f+"를 삭제하였습니다.");
+                            DeleteLogWrite(f + "를 삭제하였습니다.");
 
                             info.Delete();
                         }
+                        //if (drive == "C")
+                        //{
+                        //    //용량초과시 문답무용 삭제
+                        //    if(progressBarC.Value > capacity && dmflag == true)
+                        //    {
+                        //        DeleteLogWrite(f + "를 삭제하였습니다.");
+
+                        //        info.Delete();
+
+                        //        continue;
+                        //    }
+                        //    //용량초과는 안했지만 날짜가 지나면 삭제
+                        //    else if (Int32.Parse(time.Days.ToString()) > Int32.Parse(value[2]) && dmflag == true)//실험용으로 바로삭제시 조건은 ">= 0" 이며 원본 조건은  "> Int32.Parse(value[2])" 이다.
+                        //    {
+                        //        DeleteLogWrite(f + "를 삭제하였습니다.");
+
+                        //        info.Delete();
+                        //    }
+
+                        //}
+                        //else if (drive == "D")
+                        //{
+                        //    //용량초과시 문답무용 삭제
+                        //    if (progressBarD.Value > capacity && dmflag == true)
+                        //    {
+                        //        DeleteLogWrite(f + "를 삭제하였습니다.");
+
+                        //        info.Delete();
+                        //        continue;
+                        //    }
+                        //    //용량초과는 안했지만 날짜가 지나면 삭제
+                        //    else if (Int32.Parse(time.Days.ToString()) > Int32.Parse(value[2]) && dmflag == true)//실험용으로 바로삭제시 조건은 ">= 0" 이며 원본 조건은  "> Int32.Parse(value[2])" 이다.
+                        //    {
+                        //        DeleteLogWrite(f + "를 삭제하였습니다.");
+
+                        //        info.Delete();
+                        //    }
+                        //}
                     }
-                    //기간단위 삭제방식 끝 -----------------------------------------
+                    //기간단위 삭제방식 끝 ---------------------------------------------------
 
 
-                    //용량단위 삭제방식 시작 ---------------------------------------
+
+                    string[] fullpath;
+                    int deviceidx;
+
+                    //for (int i = 0; i < dirList.Count; i++)
+                    //{
+                    //    //MessageBox.Show(dirList[i]);
+                    //    fullpath = dirList[i].Split('\\');
+                    //    try
+                    //    {
+                    //        int deviceidx = fullpath.Length - 5;    //배열 오류 가능성 생각해야함.
+                    //        //MessageBox.Show(fullpath[deviceidx]);
+                    //    }
+                    //    catch { }
+                    //}
+
+                    //용량단위 삭제방식 시작 ------------------------------------------------------------------------------------------------------------------------------------------
                     if (drive == "C")
                     {
                         if (progressBarC.Value > capacity && dmflag == true)
                         {
                             DirectoryInfo di = new DirectoryInfo(oldestFolder);
 
+                            System.IO.FileInfo[] fil = di.GetFiles("*.*");
+                            foreach (System.IO.FileInfo file in fil)
+                            {
+                                //MessageBox.Show(file.FullName);
+                                file.Attributes = FileAttributes.Normal;
+                            }
+
                             foreach (string f in files)
                             {
                                 DeleteLogWrite(f + "를 삭제하였습니다.");
                             }
 
                             di.Delete(true);
+                            //MessageBox.Show("삭제되는 폴더 경로 : " + di.FullName); //삭제경로확인용
+                            
+                            fullpath = oldestFolder.Split('\\');
+                            try
+                            {
+                                deviceidx = fullpath.Length - 5;
+                                
+                                //위에서 삭제한 디렉토리 바탕으로 디바이스번호만 바꾸어가며 삭제
+                                for (int i = 2; i < 50; i++)    //디바이스 50개까지
+                                {
+                                    try
+                                    { 
+                                        string fulpath="";
+                                        fullpath[deviceidx] = i.ToString();
+                                        for(int j=0; j < fullpath.Length; j++)
+                                        {
+                                            if(!(j==fullpath.Length-1))
+                                            {
+                                                fulpath = fulpath+fullpath[j] + "\\";
+                                            }
+                                            else if(j==fullpath.Length-1)
+                                            {
+                                                fulpath = fulpath + fullpath[j];
+                                            }
+                                        }
+                                        //MessageBox.Show(fulpath);
+
+                                        DirectoryInfo dii = new DirectoryInfo(fulpath);
+                                        if(progressBarC.Value > capacity && dmflag == true)
+                                        {
+                                            string[] filess = Directory.GetFiles(fulpath);
+                                            foreach (string f in filess)
+                                            {
+                                                DeleteLogWrite(f + "를 삭제하였습니다.");
+                                            }
+
+                                            if (dmflag == true)
+                                            {
+                                                dii.Delete(true);
+                                                //MessageBox.Show("삭제되는 폴더 경로 : " + dii.FullName); //삭제경로확인용
+                                            }
+                                        }
+                                        
+                                    }
+                                    catch 
+                                    { 
+                                    }
+                                }
+
+                            }
+                            catch 
+                            { 
+                            }
                         }
                     }
                     else if (drive == "D")
                     {
-                        if (progressBarD.Value > capacity && dmflag == true)
+                        if (progressBarD.Value > capacity && dmflag == true) // 1대신 capacity 적어라
                         {
                             DirectoryInfo di = new DirectoryInfo(oldestFolder);
+
+                            System.IO.FileInfo[] fil = di.GetFiles("*.*");
+                            foreach (System.IO.FileInfo file in fil)
+                            {
+                                //MessageBox.Show(file.FullName);
+                                file.Attributes = FileAttributes.Normal;
+                            }
 
                             foreach (string f in files)
                             {
@@ -2160,10 +2314,63 @@ namespace PM
                             }
 
                             di.Delete(true);
+                            //MessageBox.Show("삭제되는 폴더 경로 : " + di.FullName); //삭제경로확인용
+
+                            fullpath = oldestFolder.Split('\\');
+                            try
+                            {
+                                deviceidx = fullpath.Length - 5;
+
+                                //위에서 삭제한 디렉토리 바탕으로 디바이스번호만 바꾸어가며 삭제
+                                for (int i = 2; i < 50; i++)
+                                {
+                                    try
+                                    {
+                                        string fulpath = "";
+                                        fullpath[deviceidx] = i.ToString();
+                                        for (int j = 0; j < fullpath.Length; j++)
+                                        {
+                                            if (!(j == fullpath.Length - 1))
+                                            {
+                                                fulpath = fulpath + fullpath[j] + "\\";
+                                            }
+                                            else if (j == fullpath.Length - 1)
+                                            {
+                                                fulpath = fulpath + fullpath[j];
+                                            }
+                                        }
+                                        //MessageBox.Show(fulpath);
+
+                                        DirectoryInfo dii = new DirectoryInfo(fulpath);
+                                        if (progressBarD.Value > capacity && dmflag == true) // 1대신 capacity 적어라
+                                        {
+                                            string[] filess = Directory.GetFiles(fulpath);
+                                            foreach (string f in filess)
+                                            {
+                                                DeleteLogWrite(f + "를 삭제하였습니다.");
+                                            }
+
+                                            if (dmflag == true)
+                                            {
+                                                dii.Delete(true);
+                                                //MessageBox.Show("삭제되는 폴더 경로 : " + dii.FullName); //삭제경로확인용
+                                            }
+                                        }
+
+                                    }
+                                    catch
+                                    {
+                                    }
+                                }
+
+                            }
+                            catch
+                            {
+                            }
+
                         }
                     }
-                    //용량단위 삭제방식 끝------------------------------------------
-
+                    //용량단위 삭제방식 끝------------------------------------------------------------------------------------------------------------------------------------------------------------
                 }
                 catch { }
 
@@ -2171,6 +2378,7 @@ namespace PM
             }
         }
 
+        //최하위폴더 정보 캐치
         public void DirSearch(string path)
         {
             try
@@ -2181,12 +2389,13 @@ namespace PM
                 {
                     foreach (string dir in dirs)
                     {
-                        //MessageBox.Show(dir);
+                        //MessageBox.Show(dir);   //이놈이 모든 디렉토리를 내다 봄
                         DirSearch(dir);
                     }
                 }
                 else if(dirs.Length == 0)
                 {
+                    //MessageBox.Show(path);
                     DirectoryInfo di = new DirectoryInfo(path); //최하위 폴더정보
                     dirList.Add(di.FullName);
                 }
@@ -2286,6 +2495,7 @@ namespace PM
             }
             DirFileSearch(DMaddress, "jpg", expire);
         }
+
         //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
 }
