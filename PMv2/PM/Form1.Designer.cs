@@ -68,6 +68,10 @@
             this.PMTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
+            this.Daylbl2 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.deletedelaylbl = new System.Windows.Forms.Label();
             this.drivelbl = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -99,10 +103,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.deletedelaylbl = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.Daylbl2 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -576,6 +576,50 @@
             this.tabPage2.Text = "   DM";
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label21.Location = new System.Drawing.Point(835, 269);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(145, 24);
+            this.label21.TabIndex = 38;
+            this.label21.Text = "이 지나는 경우 삭제";
+            // 
+            // Daylbl2
+            // 
+            this.Daylbl2.AutoSize = true;
+            this.Daylbl2.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Daylbl2.ForeColor = System.Drawing.Color.Brown;
+            this.Daylbl2.Location = new System.Drawing.Point(779, 269);
+            this.Daylbl2.Name = "Daylbl2";
+            this.Daylbl2.Size = new System.Drawing.Size(48, 24);
+            this.Daylbl2.TabIndex = 37;
+            this.Daylbl2.Text = "10 일";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label19.Location = new System.Drawing.Point(726, 269);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(60, 24);
+            this.label19.TabIndex = 36;
+            this.label19.Text = "파일이 ";
+            // 
+            // deletedelaylbl
+            // 
+            this.deletedelaylbl.AutoSize = true;
+            this.deletedelaylbl.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.deletedelaylbl.ForeColor = System.Drawing.Color.Brown;
+            this.deletedelaylbl.Location = new System.Drawing.Point(824, 365);
+            this.deletedelaylbl.Name = "deletedelaylbl";
+            this.deletedelaylbl.Size = new System.Drawing.Size(137, 19);
+            this.deletedelaylbl.TabIndex = 35;
+            this.deletedelaylbl.Text = "동작 대기중...";
+            // 
             // drivelbl
             // 
             this.drivelbl.AutoSize = true;
@@ -716,11 +760,11 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label9.Location = new System.Drawing.Point(598, 306);
+            this.label9.Location = new System.Drawing.Point(603, 307);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(386, 24);
+            this.label9.Size = new System.Drawing.Size(377, 24);
             this.label9.TabIndex = 21;
-            this.label9.Text = "(설정 가능 범위)    용량 : 10 ~ 95%    일 : 10 ~ 150일";
+            this.label9.Text = "(설정 가능 범위)    용량 : 10 ~ 95%    일 : 1 ~ 150일";
             // 
             // label8
             // 
@@ -924,50 +968,6 @@
             // 
             this.timer2.Interval = 60000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // deletedelaylbl
-            // 
-            this.deletedelaylbl.AutoSize = true;
-            this.deletedelaylbl.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.deletedelaylbl.ForeColor = System.Drawing.Color.Brown;
-            this.deletedelaylbl.Location = new System.Drawing.Point(824, 365);
-            this.deletedelaylbl.Name = "deletedelaylbl";
-            this.deletedelaylbl.Size = new System.Drawing.Size(137, 19);
-            this.deletedelaylbl.TabIndex = 35;
-            this.deletedelaylbl.Text = "동작 대기중...";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label19.Location = new System.Drawing.Point(726, 269);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(60, 24);
-            this.label19.TabIndex = 36;
-            this.label19.Text = "파일이 ";
-            // 
-            // Daylbl2
-            // 
-            this.Daylbl2.AutoSize = true;
-            this.Daylbl2.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Daylbl2.ForeColor = System.Drawing.Color.Brown;
-            this.Daylbl2.Location = new System.Drawing.Point(779, 269);
-            this.Daylbl2.Name = "Daylbl2";
-            this.Daylbl2.Size = new System.Drawing.Size(48, 24);
-            this.Daylbl2.TabIndex = 37;
-            this.Daylbl2.Text = "10 일";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label21.Location = new System.Drawing.Point(835, 269);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(145, 24);
-            this.label21.TabIndex = 38;
-            this.label21.Text = "이 지나는 경우 삭제";
             // 
             // Form1
             // 
