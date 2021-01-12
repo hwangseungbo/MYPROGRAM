@@ -60,49 +60,55 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnDel = new System.Windows.Forms.Button();
-            this.btnRevise = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.PMTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.btnRevise = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dayRbtn2 = new System.Windows.Forms.RadioButton();
+            this.capaRbtn2 = new System.Windows.Forms.RadioButton();
             this.label21 = new System.Windows.Forms.Label();
             this.Daylbl2 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.deletedelaylbl = new System.Windows.Forms.Label();
             this.drivelbl = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.Percentlbl2 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.Dlabel = new System.Windows.Forms.Label();
-            this.Clabel = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.progressBarD = new System.Windows.Forms.ProgressBar();
-            this.progressBarC = new System.Windows.Forms.ProgressBar();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lboxlog = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.dayRbtn = new System.Windows.Forms.RadioButton();
+            this.capaRbtn = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.mgntlbl3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.deletedelaylbl = new System.Windows.Forms.Label();
             this.dmStopbtn = new System.Windows.Forms.Button();
             this.dmStartbtn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.Daylbl = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Dlabel = new System.Windows.Forms.Label();
             this.Percentlbl = new System.Windows.Forms.Label();
+            this.Clabel = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.progressBarC = new System.Windows.Forms.ProgressBar();
+            this.label14 = new System.Windows.Forms.Label();
+            this.progressBarD = new System.Windows.Forms.ProgressBar();
+            this.label13 = new System.Windows.Forms.Label();
             this.ScrollBar2 = new System.Windows.Forms.HScrollBar();
             this.ScrollBar = new System.Windows.Forms.HScrollBar();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -131,14 +137,16 @@
             // 
             // btnExit
             // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Image = global::PM.Properties.Resources.iconmonstr_minus_2_24;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnExit.Location = new System.Drawing.Point(1025, 0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(35, 31);
             this.btnExit.TabIndex = 14;
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
@@ -211,7 +219,7 @@
             this.btnLog.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLog.Image = global::PM.Properties.Resources.iconmonstr_school_15_48__1_;
             this.btnLog.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLog.Location = new System.Drawing.Point(0, 405);
+            this.btnLog.Location = new System.Drawing.Point(0, 412);
             this.btnLog.Name = "btnLog";
             this.btnLog.Size = new System.Drawing.Size(156, 82);
             this.btnLog.TabIndex = 15;
@@ -227,7 +235,7 @@
             this.btnStart.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.Image = global::PM.Properties.Resources.iconmonstr_media_control_48_48__1_;
             this.btnStart.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnStart.Location = new System.Drawing.Point(0, 229);
+            this.btnStart.Location = new System.Drawing.Point(0, 217);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(156, 82);
             this.btnStart.TabIndex = 14;
@@ -243,7 +251,7 @@
             this.btnOpen.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpen.Image = global::PM.Properties.Resources.iconmonstr_cloud_32_48;
             this.btnOpen.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnOpen.Location = new System.Drawing.Point(0, 317);
+            this.btnOpen.Location = new System.Drawing.Point(0, 315);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(156, 82);
             this.btnOpen.TabIndex = 11;
@@ -259,7 +267,7 @@
             this.btnSPD.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSPD.Image = global::PM.Properties.Resources.iconmonstr_eraser_2_48;
             this.btnSPD.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSPD.Location = new System.Drawing.Point(0, 141);
+            this.btnSPD.Location = new System.Drawing.Point(0, 117);
             this.btnSPD.Name = "btnSPD";
             this.btnSPD.Size = new System.Drawing.Size(156, 82);
             this.btnSPD.TabIndex = 10;
@@ -275,7 +283,7 @@
             this.btnSPR.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSPR.Image = global::PM.Properties.Resources.iconmonstr_clipboard_13_48;
             this.btnSPR.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSPR.Location = new System.Drawing.Point(0, 53);
+            this.btnSPR.Location = new System.Drawing.Point(0, 18);
             this.btnSPR.Name = "btnSPR";
             this.btnSPR.Size = new System.Drawing.Size(156, 82);
             this.btnSPR.TabIndex = 9;
@@ -420,6 +428,75 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(948, 465);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 31);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "작업 끝내기";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // PMTab
+            // 
+            this.PMTab.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.PMTab.Controls.Add(this.tabPage1);
+            this.PMTab.Controls.Add(this.tabPage2);
+            this.PMTab.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PMTab.ItemSize = new System.Drawing.Size(100, 30);
+            this.PMTab.Location = new System.Drawing.Point(-4, 31);
+            this.PMTab.Margin = new System.Windows.Forms.Padding(0);
+            this.PMTab.Name = "PMTab";
+            this.PMTab.Padding = new System.Drawing.Point(0, 0);
+            this.PMTab.SelectedIndex = 0;
+            this.PMTab.Size = new System.Drawing.Size(1080, 547);
+            this.PMTab.TabIndex = 16;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
+            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.tboxPath);
+            this.tabPage1.Controls.Add(this.lblProcNum);
+            this.tabPage1.Controls.Add(this.btnSearch);
+            this.tabPage1.Controls.Add(this.listView1);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.btnDel);
+            this.tabPage1.Controls.Add(this.tboxPeriod);
+            this.tabPage1.Controls.Add(this.btnRevise);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.btnAdd);
+            this.tabPage1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tabPage1.ForeColor = System.Drawing.Color.AliceBlue;
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1072, 509);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "   PM";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = global::PM.Properties.Resources.iconmonstr_folder_30_48;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSearch.Location = new System.Drawing.Point(903, 6);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(135, 82);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "찾기";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // btnDel
             // 
             this.btnDel.FlatAppearance.BorderSize = 0;
@@ -468,99 +545,24 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Image = global::PM.Properties.Resources.iconmonstr_folder_30_48;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSearch.Location = new System.Drawing.Point(903, 6);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(135, 82);
-            this.btnSearch.TabIndex = 8;
-            this.btnSearch.Text = "찾기";
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(948, 465);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 31);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "작업 끝내기";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
-            // 
-            // PMTab
-            // 
-            this.PMTab.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.PMTab.Controls.Add(this.tabPage1);
-            this.PMTab.Controls.Add(this.tabPage2);
-            this.PMTab.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PMTab.ItemSize = new System.Drawing.Size(100, 30);
-            this.PMTab.Location = new System.Drawing.Point(-3, 31);
-            this.PMTab.Margin = new System.Windows.Forms.Padding(0);
-            this.PMTab.Name = "PMTab";
-            this.PMTab.Padding = new System.Drawing.Point(0, 0);
-            this.PMTab.SelectedIndex = 0;
-            this.PMTab.Size = new System.Drawing.Size(1073, 547);
-            this.PMTab.TabIndex = 16;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.tboxPath);
-            this.tabPage1.Controls.Add(this.lblProcNum);
-            this.tabPage1.Controls.Add(this.btnSearch);
-            this.tabPage1.Controls.Add(this.listView1);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.btnDel);
-            this.tabPage1.Controls.Add(this.tboxPeriod);
-            this.tabPage1.Controls.Add(this.btnRevise);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.btnAdd);
-            this.tabPage1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tabPage1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.tabPage1.Location = new System.Drawing.Point(4, 34);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1065, 509);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "   PM";
-            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.dayRbtn2);
+            this.tabPage2.Controls.Add(this.capaRbtn2);
             this.tabPage2.Controls.Add(this.label21);
             this.tabPage2.Controls.Add(this.Daylbl2);
             this.tabPage2.Controls.Add(this.label19);
-            this.tabPage2.Controls.Add(this.deletedelaylbl);
             this.tabPage2.Controls.Add(this.drivelbl);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label17);
             this.tabPage2.Controls.Add(this.Percentlbl2);
-            this.tabPage2.Controls.Add(this.label16);
-            this.tabPage2.Controls.Add(this.Dlabel);
-            this.tabPage2.Controls.Add(this.Clabel);
-            this.tabPage2.Controls.Add(this.label15);
-            this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.progressBarD);
-            this.tabPage2.Controls.Add(this.progressBarC);
-            this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Controls.Add(this.ScrollBar2);
@@ -571,17 +573,74 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1065, 509);
+            this.tabPage2.Size = new System.Drawing.Size(1072, 509);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "   DM";
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(662, 56);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 25);
+            this.label12.TabIndex = 44;
+            this.label12.Text = "우선순위";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label10.Location = new System.Drawing.Point(573, 274);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(486, 24);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "※우선순위가 용량일 경우 설정한 기간이 지나도 용량의 여유가 있으면";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label8.Location = new System.Drawing.Point(724, 8);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(113, 29);
+            this.label8.TabIndex = 42;
+            this.label8.Text = "<설정변경>";
+            // 
+            // dayRbtn2
+            // 
+            this.dayRbtn2.AutoSize = true;
+            this.dayRbtn2.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dayRbtn2.Location = new System.Drawing.Point(822, 54);
+            this.dayRbtn2.Name = "dayRbtn2";
+            this.dayRbtn2.Size = new System.Drawing.Size(62, 29);
+            this.dayRbtn2.TabIndex = 41;
+            this.dayRbtn2.Text = "기간";
+            this.dayRbtn2.UseVisualStyleBackColor = true;
+            // 
+            // capaRbtn2
+            // 
+            this.capaRbtn2.AutoSize = true;
+            this.capaRbtn2.Checked = true;
+            this.capaRbtn2.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.capaRbtn2.Location = new System.Drawing.Point(750, 54);
+            this.capaRbtn2.Name = "capaRbtn2";
+            this.capaRbtn2.Size = new System.Drawing.Size(62, 29);
+            this.capaRbtn2.TabIndex = 40;
+            this.capaRbtn2.TabStop = true;
+            this.capaRbtn2.Text = "용량";
+            this.capaRbtn2.UseVisualStyleBackColor = true;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label21.Location = new System.Drawing.Point(835, 269);
+            this.label21.Location = new System.Drawing.Point(875, 221);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(145, 24);
             this.label21.TabIndex = 38;
@@ -591,8 +650,8 @@
             // 
             this.Daylbl2.AutoSize = true;
             this.Daylbl2.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Daylbl2.ForeColor = System.Drawing.Color.Brown;
-            this.Daylbl2.Location = new System.Drawing.Point(779, 269);
+            this.Daylbl2.ForeColor = System.Drawing.Color.Red;
+            this.Daylbl2.Location = new System.Drawing.Point(819, 221);
             this.Daylbl2.Name = "Daylbl2";
             this.Daylbl2.Size = new System.Drawing.Size(48, 24);
             this.Daylbl2.TabIndex = 37;
@@ -603,29 +662,18 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label19.Location = new System.Drawing.Point(726, 269);
+            this.label19.Location = new System.Drawing.Point(766, 221);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(60, 24);
             this.label19.TabIndex = 36;
             this.label19.Text = "파일이 ";
             // 
-            // deletedelaylbl
-            // 
-            this.deletedelaylbl.AutoSize = true;
-            this.deletedelaylbl.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.deletedelaylbl.ForeColor = System.Drawing.Color.Brown;
-            this.deletedelaylbl.Location = new System.Drawing.Point(824, 365);
-            this.deletedelaylbl.Name = "deletedelaylbl";
-            this.deletedelaylbl.Size = new System.Drawing.Size(137, 19);
-            this.deletedelaylbl.TabIndex = 35;
-            this.deletedelaylbl.Text = "동작 대기중...";
-            // 
             // drivelbl
             // 
             this.drivelbl.AutoSize = true;
             this.drivelbl.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drivelbl.ForeColor = System.Drawing.Color.Brown;
-            this.drivelbl.Location = new System.Drawing.Point(623, 216);
+            this.drivelbl.ForeColor = System.Drawing.Color.Red;
+            this.drivelbl.Location = new System.Drawing.Point(659, 168);
             this.drivelbl.Name = "drivelbl";
             this.drivelbl.Size = new System.Drawing.Size(40, 24);
             this.drivelbl.TabIndex = 34;
@@ -636,7 +684,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label18.Location = new System.Drawing.Point(824, 216);
+            this.label18.Location = new System.Drawing.Point(860, 168);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(160, 24);
             this.label18.TabIndex = 33;
@@ -647,7 +695,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label17.Location = new System.Drawing.Point(660, 216);
+            this.label17.Location = new System.Drawing.Point(693, 168);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(120, 24);
             this.label17.TabIndex = 32;
@@ -657,144 +705,31 @@
             // 
             this.Percentlbl2.AutoSize = true;
             this.Percentlbl2.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Percentlbl2.ForeColor = System.Drawing.Color.Brown;
-            this.Percentlbl2.Location = new System.Drawing.Point(779, 216);
+            this.Percentlbl2.ForeColor = System.Drawing.Color.Red;
+            this.Percentlbl2.Location = new System.Drawing.Point(815, 168);
             this.Percentlbl2.Name = "Percentlbl2";
             this.Percentlbl2.Size = new System.Drawing.Size(48, 24);
             this.Percentlbl2.TabIndex = 31;
             this.Percentlbl2.Text = "10 %";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label16.Location = new System.Drawing.Point(766, 472);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(272, 24);
-            this.label16.TabIndex = 30;
-            this.label16.Text = "※ 설정저장 시 DM동작이 중지됩니다.";
-            // 
-            // Dlabel
-            // 
-            this.Dlabel.AutoSize = true;
-            this.Dlabel.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dlabel.ForeColor = System.Drawing.Color.AliceBlue;
-            this.Dlabel.Location = new System.Drawing.Point(563, 434);
-            this.Dlabel.Name = "Dlabel";
-            this.Dlabel.Size = new System.Drawing.Size(34, 24);
-            this.Dlabel.TabIndex = 29;
-            this.Dlabel.Text = "0%";
-            // 
-            // Clabel
-            // 
-            this.Clabel.AutoSize = true;
-            this.Clabel.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clabel.ForeColor = System.Drawing.Color.AliceBlue;
-            this.Clabel.Location = new System.Drawing.Point(563, 398);
-            this.Clabel.Name = "Clabel";
-            this.Clabel.Size = new System.Drawing.Size(34, 24);
-            this.Clabel.TabIndex = 28;
-            this.Clabel.Text = "0%";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label15.Location = new System.Drawing.Point(393, 355);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(156, 29);
-            this.label15.TabIndex = 27;
-            this.label15.Text = "<사용중인 공간>";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label14.Location = new System.Drawing.Point(325, 434);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(67, 24);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "D Drive";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label13.Location = new System.Drawing.Point(325, 398);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 24);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "C Drive";
-            // 
-            // progressBarD
-            // 
-            this.progressBarD.Location = new System.Drawing.Point(398, 434);
-            this.progressBarD.Name = "progressBarD";
-            this.progressBarD.Size = new System.Drawing.Size(159, 24);
-            this.progressBarD.TabIndex = 24;
-            // 
-            // progressBarC
-            // 
-            this.progressBarC.Location = new System.Drawing.Point(398, 398);
-            this.progressBarC.Name = "progressBarC";
-            this.progressBarC.Size = new System.Drawing.Size(159, 24);
-            this.progressBarC.TabIndex = 23;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label10.Location = new System.Drawing.Point(233, 145);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(560, 24);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "마찬가지로 지정일수가 채워지지 않아도 설정용량을 초과시에 삭제가 진행됩니다.";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label9.Location = new System.Drawing.Point(603, 307);
+            this.label9.Location = new System.Drawing.Point(592, 298);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(377, 24);
+            this.label9.Size = new System.Drawing.Size(165, 24);
             this.label9.TabIndex = 21;
-            this.label9.Text = "(설정 가능 범위)    용량 : 10 ~ 95%    일 : 1 ~ 150일";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label8.Location = new System.Drawing.Point(233, 121);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(555, 24);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "설정용량만큼 용량이 채워지지 않아도 설정한 일 수가 지나면 삭제가 진행됩니다.";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label7.Location = new System.Drawing.Point(233, 97);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(435, 24);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "삭제방식은 혼합형으로 우선순위는 용량 퍼센티지 우선입니다. ";
+            this.label9.Text = "삭제하지 않습니다.     ";
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.button3.Location = new System.Drawing.Point(828, 411);
+            this.button3.Location = new System.Drawing.Point(864, 380);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 54);
+            this.button3.Size = new System.Drawing.Size(152, 78);
             this.button3.TabIndex = 18;
             this.button3.Text = "설정저장";
             this.button3.UseVisualStyleBackColor = true;
@@ -803,40 +738,124 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(49)))), ((int)(((byte)(69)))));
-            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.lboxlog);
             this.panel3.Controls.Add(this.label11);
+            this.panel3.Controls.Add(this.dayRbtn);
+            this.panel3.Controls.Add(this.capaRbtn);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.mgntlbl3);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.deletedelaylbl);
             this.panel3.Controls.Add(this.dmStopbtn);
             this.panel3.Controls.Add(this.dmStartbtn);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.Daylbl);
-            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.Dlabel);
             this.panel3.Controls.Add(this.Percentlbl);
+            this.panel3.Controls.Add(this.Clabel);
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.progressBarC);
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Controls.Add(this.progressBarD);
+            this.panel3.Controls.Add(this.label13);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(157, 539);
+            this.panel3.Size = new System.Drawing.Size(536, 539);
             this.panel3.TabIndex = 17;
             // 
-            // label12
+            // lboxlog
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label12.Location = new System.Drawing.Point(30, 245);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 24);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "기간";
+            this.lboxlog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(49)))), ((int)(((byte)(88)))));
+            this.lboxlog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lboxlog.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lboxlog.ForeColor = System.Drawing.Color.AliceBlue;
+            this.lboxlog.FormattingEnabled = true;
+            this.lboxlog.ItemHeight = 20;
+            this.lboxlog.Location = new System.Drawing.Point(3, 179);
+            this.lboxlog.Name = "lboxlog";
+            this.lboxlog.ScrollAlwaysVisible = true;
+            this.lboxlog.Size = new System.Drawing.Size(530, 100);
+            this.lboxlog.TabIndex = 44;
+            this.lboxlog.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.lboxlog_ControlAdded);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label11.Location = new System.Drawing.Point(30, 190);
+            this.label11.ForeColor = System.Drawing.Color.Goldenrod;
+            this.label11.Location = new System.Drawing.Point(208, 154);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(40, 24);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "용량";
+            this.label11.Size = new System.Drawing.Size(70, 24);
+            this.label11.TabIndex = 45;
+            this.label11.Text = "삭제로그";
+            // 
+            // dayRbtn
+            // 
+            this.dayRbtn.AutoSize = true;
+            this.dayRbtn.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dayRbtn.Location = new System.Drawing.Point(280, 108);
+            this.dayRbtn.Name = "dayRbtn";
+            this.dayRbtn.Size = new System.Drawing.Size(62, 29);
+            this.dayRbtn.TabIndex = 40;
+            this.dayRbtn.Text = "기간";
+            this.dayRbtn.UseVisualStyleBackColor = true;
+            this.dayRbtn.Click += new System.EventHandler(this.dayRbtn_Click);
+            // 
+            // capaRbtn
+            // 
+            this.capaRbtn.AutoSize = true;
+            this.capaRbtn.Checked = true;
+            this.capaRbtn.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.capaRbtn.Location = new System.Drawing.Point(89, 108);
+            this.capaRbtn.Name = "capaRbtn";
+            this.capaRbtn.Size = new System.Drawing.Size(62, 29);
+            this.capaRbtn.TabIndex = 39;
+            this.capaRbtn.TabStop = true;
+            this.capaRbtn.Text = "용량";
+            this.capaRbtn.UseVisualStyleBackColor = true;
+            this.capaRbtn.Click += new System.EventHandler(this.capaRbtn_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label7.Location = new System.Drawing.Point(107, 310);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 23);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "상태";
+            // 
+            // mgntlbl3
+            // 
+            this.mgntlbl3.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.mgntlbl3.ForeColor = System.Drawing.Color.Goldenrod;
+            this.mgntlbl3.Location = new System.Drawing.Point(12, 65);
+            this.mgntlbl3.Name = "mgntlbl3";
+            this.mgntlbl3.Size = new System.Drawing.Size(511, 40);
+            this.mgntlbl3.TabIndex = 39;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Goldenrod;
+            this.label6.Location = new System.Drawing.Point(167, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(175, 29);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "<동작중인 설정값>";
+            // 
+            // deletedelaylbl
+            // 
+            this.deletedelaylbl.AutoSize = true;
+            this.deletedelaylbl.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.deletedelaylbl.ForeColor = System.Drawing.Color.Goldenrod;
+            this.deletedelaylbl.Location = new System.Drawing.Point(55, 343);
+            this.deletedelaylbl.Name = "deletedelaylbl";
+            this.deletedelaylbl.Size = new System.Drawing.Size(137, 19);
+            this.deletedelaylbl.TabIndex = 35;
+            this.deletedelaylbl.Text = "동작 대기중...";
             // 
             // dmStopbtn
             // 
@@ -845,7 +864,7 @@
             this.dmStopbtn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dmStopbtn.Image = global::PM.Properties.Resources.iconmonstr_media_control_50_48;
             this.dmStopbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.dmStopbtn.Location = new System.Drawing.Point(1, 385);
+            this.dmStopbtn.Location = new System.Drawing.Point(319, 400);
             this.dmStopbtn.Name = "dmStopbtn";
             this.dmStopbtn.Size = new System.Drawing.Size(156, 82);
             this.dmStopbtn.TabIndex = 20;
@@ -861,7 +880,7 @@
             this.dmStartbtn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dmStartbtn.Image = global::PM.Properties.Resources.iconmonstr_media_control_48_48__1_;
             this.dmStartbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.dmStartbtn.Location = new System.Drawing.Point(1, 289);
+            this.dmStartbtn.Location = new System.Drawing.Point(49, 400);
             this.dmStartbtn.Name = "dmStartbtn";
             this.dmStartbtn.Size = new System.Drawing.Size(156, 82);
             this.dmStartbtn.TabIndex = 19;
@@ -875,7 +894,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label5.Location = new System.Drawing.Point(27, 45);
+            this.label5.Location = new System.Drawing.Point(199, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 24);
             this.label5.TabIndex = 3;
@@ -885,43 +904,101 @@
             // 
             this.Daylbl.AutoSize = true;
             this.Daylbl.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Daylbl.ForeColor = System.Drawing.Color.AliceBlue;
-            this.Daylbl.Location = new System.Drawing.Point(76, 245);
+            this.Daylbl.ForeColor = System.Drawing.Color.Goldenrod;
+            this.Daylbl.Location = new System.Drawing.Point(349, 111);
             this.Daylbl.Name = "Daylbl";
             this.Daylbl.Size = new System.Drawing.Size(48, 24);
             this.Daylbl.TabIndex = 16;
             this.Daylbl.Text = "10 일";
             // 
-            // label6
+            // Dlabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label6.Location = new System.Drawing.Point(39, 119);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 24);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "삭제 방식";
+            this.Dlabel.AutoSize = true;
+            this.Dlabel.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dlabel.ForeColor = System.Drawing.Color.AliceBlue;
+            this.Dlabel.Location = new System.Drawing.Point(481, 354);
+            this.Dlabel.Name = "Dlabel";
+            this.Dlabel.Size = new System.Drawing.Size(34, 24);
+            this.Dlabel.TabIndex = 29;
+            this.Dlabel.Text = "0%";
             // 
             // Percentlbl
             // 
             this.Percentlbl.AutoSize = true;
             this.Percentlbl.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Percentlbl.ForeColor = System.Drawing.Color.AliceBlue;
-            this.Percentlbl.Location = new System.Drawing.Point(76, 190);
+            this.Percentlbl.ForeColor = System.Drawing.Color.Goldenrod;
+            this.Percentlbl.Location = new System.Drawing.Point(157, 111);
             this.Percentlbl.Name = "Percentlbl";
             this.Percentlbl.Size = new System.Drawing.Size(48, 24);
             this.Percentlbl.TabIndex = 14;
             this.Percentlbl.Text = "10 %";
             // 
+            // Clabel
+            // 
+            this.Clabel.AutoSize = true;
+            this.Clabel.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clabel.ForeColor = System.Drawing.Color.AliceBlue;
+            this.Clabel.Location = new System.Drawing.Point(481, 318);
+            this.Clabel.Name = "Clabel";
+            this.Clabel.Size = new System.Drawing.Size(34, 24);
+            this.Clabel.TabIndex = 28;
+            this.Clabel.Text = "0%";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label15.Location = new System.Drawing.Point(330, 282);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(132, 29);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "사용중인 공간";
+            // 
+            // progressBarC
+            // 
+            this.progressBarC.Location = new System.Drawing.Point(316, 318);
+            this.progressBarC.Name = "progressBarC";
+            this.progressBarC.Size = new System.Drawing.Size(159, 24);
+            this.progressBarC.TabIndex = 23;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label14.Location = new System.Drawing.Point(289, 354);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(22, 24);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "D";
+            // 
+            // progressBarD
+            // 
+            this.progressBarD.Location = new System.Drawing.Point(316, 354);
+            this.progressBarD.Name = "progressBarD";
+            this.progressBarD.Size = new System.Drawing.Size(159, 24);
+            this.progressBarD.TabIndex = 24;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label13.Location = new System.Drawing.Point(289, 318);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(22, 24);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "C";
+            // 
             // ScrollBar2
             // 
             this.ScrollBar2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ScrollBar2.Location = new System.Drawing.Point(237, 243);
+            this.ScrollBar2.Location = new System.Drawing.Point(566, 195);
             this.ScrollBar2.Maximum = 159;
             this.ScrollBar2.Minimum = 1;
             this.ScrollBar2.Name = "ScrollBar2";
-            this.ScrollBar2.Size = new System.Drawing.Size(743, 26);
+            this.ScrollBar2.Size = new System.Drawing.Size(454, 26);
             this.ScrollBar2.TabIndex = 15;
             this.ScrollBar2.Value = 10;
             this.ScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll_1);
@@ -929,11 +1006,11 @@
             // ScrollBar
             // 
             this.ScrollBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ScrollBar.Location = new System.Drawing.Point(237, 188);
+            this.ScrollBar.Location = new System.Drawing.Point(566, 142);
             this.ScrollBar.Maximum = 104;
             this.ScrollBar.Minimum = 10;
             this.ScrollBar.Name = "ScrollBar";
-            this.ScrollBar.Size = new System.Drawing.Size(743, 26);
+            this.ScrollBar.Size = new System.Drawing.Size(454, 26);
             this.ScrollBar.TabIndex = 13;
             this.ScrollBar.Value = 10;
             this.ScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
@@ -945,11 +1022,10 @@
             this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::PM.Properties.Resources.iconmonstr_folder_30_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(903, 16);
+            this.button2.Location = new System.Drawing.Point(965, 71);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 82);
+            this.button2.Size = new System.Drawing.Size(83, 58);
             this.button2.TabIndex = 9;
-            this.button2.Text = "찾기";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -957,17 +1033,27 @@
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.textBox1.Location = new System.Drawing.Point(237, 40);
+            this.textBox1.Location = new System.Drawing.Point(566, 92);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(660, 29);
+            this.textBox1.Size = new System.Drawing.Size(390, 22);
             this.textBox1.TabIndex = 6;
             // 
             // timer2
             // 
             this.timer2.Interval = 60000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(591, 335);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(406, 25);
+            this.label16.TabIndex = 45;
+            this.label16.Text = " (설정 가능 범위)    용량 : 10 ~ 95%    일 : 1 ~ 150일";
             // 
             // Form1
             // 
@@ -1046,7 +1132,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.HScrollBar ScrollBar;
         private System.Windows.Forms.Label Percentlbl;
         private System.Windows.Forms.Label Daylbl;
@@ -1056,12 +1141,7 @@
         private System.Windows.Forms.Button dmStopbtn;
         private System.Windows.Forms.Button dmStartbtn;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ProgressBar progressBarD;
@@ -1069,7 +1149,6 @@
         private System.Windows.Forms.Label Dlabel;
         private System.Windows.Forms.Label Clabel;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label Percentlbl2;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
@@ -1078,6 +1157,19 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label Daylbl2;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label mgntlbl3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RadioButton dayRbtn;
+        private System.Windows.Forms.RadioButton capaRbtn;
+        private System.Windows.Forms.RadioButton dayRbtn2;
+        private System.Windows.Forms.RadioButton capaRbtn2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox lboxlog;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label16;
     }
 }
 

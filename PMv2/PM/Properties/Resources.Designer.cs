@@ -253,6 +253,16 @@ namespace PM.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap iconmonstr_minus_2_24 {
+            get {
+                object obj = ResourceManager.GetObject("iconmonstr-minus-2-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap iconmonstr_pen_7_48 {
             get {
                 object obj = ResourceManager.GetObject("iconmonstr-pen-7-48", resourceCulture);

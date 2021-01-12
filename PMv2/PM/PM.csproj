@@ -154,5 +154,8 @@
   <ItemGroup>
     <None Include="Resources\iconmonstr-media-control-50-481.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconmonstr-minus-2-241.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

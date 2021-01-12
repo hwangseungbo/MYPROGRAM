@@ -69,6 +69,11 @@ namespace PM
             this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
             this.Visible = false;
+            
+
+            //this.WindowState = FormWindowState.Minimized;
+            //this.ShowInTaskbar = false;
+            //this.Visible = false;
 
             ////ini파일 쓰기
             ////ini파일은 생성도 해주는 구나.
@@ -302,6 +307,7 @@ namespace PM
                 {
                     string[] value = System.IO.File.ReadAllLines(fi.ToString());
                     textBox1.Text = value[0];
+                    mgntlbl3.Text = value[0];
                     ScrollBar.Value = Int32.Parse(value[1]);
                     ScrollBar2.Value = Int32.Parse(value[2]);
                     Percentlbl.Text = value[1] + " %";
@@ -313,6 +319,16 @@ namespace PM
                     if (value[3]=="1")
                     {
                         dmStartbtn_Click(sender,e);
+                    }
+                    if(value[4]=="0")
+                    {
+                        capaRbtn.Checked = true;
+                        capaRbtn2.Checked = true;
+                    }
+                    else if (value[4] == "1")
+                    {
+                        dayRbtn.Checked = true;
+                        dayRbtn2.Checked = true;
                     }
                 }
                 catch
@@ -1248,8 +1264,6 @@ namespace PM
         {
             lock (lockObject)
             {
-
-
                 string DirPath = Environment.CurrentDirectory + @"\ExitLog";
                 string FilePath = DirPath + "\\ExitLog" + ".log";
                 string temp;
@@ -1503,28 +1517,10 @@ namespace PM
             }
         }
 
-        //프로그램 종료 버튼
+        //프로그램 최소화 버튼
         private void button1_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-            //SystemSounds.Beep.Play();
-            //if (MessageBox.Show("프로그램을 종료하시겠습니까?", "종료", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //{
-            //    try
-            //    {
-            //        for (int i = 0; i <= Proc.Length - 1; i++)
-            //        {
-            //            if (Proc[i].EnableRaisingEvents == true)
-            //            {
-            //                Proc[i].Exited -= null;
-            //                Proc[i].EnableRaisingEvents = false;
-            //            }
-            //        }
-            //    }
-            //    catch { };
-            //    LogWrite("PM프로그램이 종료되었습니다.");
-            //    System.Diagnostics.Process.GetCurrentProcess().Kill();
-            //}
         }
 
         //리스트뷰 구성요소 클릭 시 발생이벤트
@@ -1666,6 +1662,8 @@ namespace PM
             //Notify Icon을 더블클릭했을시 일어나는 이벤트.
             this.Visible = true;
             this.ShowIcon = true;
+            this.ShowInTaskbar = true;
+
             notifyIcon1.Visible = false; //트레이 아이콘을 숨긴다.
 
             IntPtr hWnd = FindWindow(null, "PM (Administrator)");
@@ -1773,21 +1771,20 @@ namespace PM
             string select_path = dialog.SelectedPath;
             if(!(select_path==""))
             {
-                dmStopbtn_Click(sender,e);
+                //dmStopbtn_Click(sender,e);
                 textBox1.Text = select_path;
+                drivelbl.Text = "   " + textBox1.Text.Substring(0, 1);
             }
 
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
-            Percentlbl.Text = ScrollBar.Value.ToString() + " %";
             Percentlbl2.Text = ScrollBar.Value.ToString() + " %";
         }
         private void hScrollBar1_Scroll_1(object sender, ScrollEventArgs e)
         {
-            Daylbl.Text = ScrollBar2.Value.ToString() + " 일";
-            Daylbl2.Text = Daylbl.Text;
+            Daylbl2.Text = ScrollBar2.Value.ToString() + " 일";
         }
       
         //DM탭 클릭시
@@ -1811,8 +1808,11 @@ namespace PM
 
                     try
                     {
+                        //
                         if (!di.Exists) Directory.CreateDirectory(DirPath);
-                        if (!fi.Exists)
+
+                        //DM 설정파일이 존재하지 않을경우 생성.
+                        if (!fi.Exists) 
                         {
                             using (StreamWriter sw = new StreamWriter(FilePath))
                             {
@@ -1820,23 +1820,59 @@ namespace PM
                                 sw.WriteLine(ScrollBar.Value.ToString());
                                 sw.WriteLine(ScrollBar2.Value.ToString());
                                 sw.WriteLine("0");
+                                if(capaRbtn2.Checked == true)
+                                {
+                                    sw.WriteLine("0");
+                                }
+                                else if(dayRbtn2.Checked == true)
+                                {
+                                    sw.WriteLine("1");
+                                }
                                 sw.Close();
                             }
+                            
+                            ////버튼상태변환 
+                            //dmStopbtn.Enabled = false;
+                            //dmStopbtn.Image = PM.Properties.Resources.iconmonstr_media_control_50_48__1_;
+                            //dmStopbtn.BackColor = Color.Transparent;
+                            //dmStartbtn.Enabled = true;
+                            //dmStartbtn.Image = PM.Properties.Resources.iconmonstr_media_control_48_48__1_;
+                            //dmStartbtn.BackColor = Color.FromArgb(50, 49, 69);
 
-                            dmStopbtn.Enabled = false;
-                            dmStopbtn.Image = PM.Properties.Resources.iconmonstr_media_control_50_48__1_;
-                            dmStopbtn.BackColor = Color.Transparent;
-                            dmStartbtn.Enabled = true;
-                            dmStartbtn.Image = PM.Properties.Resources.iconmonstr_media_control_48_48__1_;
-                            dmStartbtn.BackColor = Color.FromArgb(50, 49, 69);
                             drivelbl.Text = "   " + textBox1.Text.Substring(0, 1);
 
-                            timer2.Stop();
-                            dmflag = false;
-                            deletedelaylbl.Text = "동작 대기중...";
+                            // 현재 설정창에 표시될 정보
+                            FileInfo fidm = new FileInfo(System.Windows.Forms.Application.StartupPath + @"\DM.txt");
+                            if (fidm.Exists)
+                            {
+                                try
+                                {
+                                    string[] value = System.IO.File.ReadAllLines(fidm.ToString());
+                                    textBox1.Text = value[0];
+                                    mgntlbl3.Text = value[0];
+                                    Percentlbl.Text = value[1] + " %";
+                                    Daylbl.Text = value[2] + " 일";
+                                    if(capaRbtn2.Checked == true)
+                                    {
+                                        capaRbtn.Checked = true;
+                                    }
+                                    else if(dayRbtn2.Checked == true)
+                                    {
+                                        dayRbtn.Checked = true;
+                                    }
+                                }
+                                catch
+                                { }
+                            }
+
+
+                            //timer2.Stop();
+                            //dmflag = false;
+                            //deletedelaylbl.Text = "동작 대기중...";
+
                             Thread.Sleep(100);
                         }
-                        else
+                        else //DM파일이 존재 할 경우
                         {
                             using (StreamWriter sw = new StreamWriter(FilePath))
                             {
@@ -1844,20 +1880,55 @@ namespace PM
                                 sw.WriteLine(ScrollBar.Value.ToString());
                                 sw.WriteLine(ScrollBar2.Value.ToString());
                                 sw.WriteLine("0");
+                                if (capaRbtn2.Checked == true)
+                                {
+                                    sw.WriteLine("0");
+                                }
+                                else if (dayRbtn2.Checked == true)
+                                {
+                                    sw.WriteLine("1");
+                                }
                                 sw.Close();
                             }
 
-                            dmStopbtn.Enabled = false;
-                            dmStopbtn.Image = PM.Properties.Resources.iconmonstr_media_control_50_48__1_;
-                            dmStopbtn.BackColor = Color.Transparent;
-                            dmStartbtn.Enabled = true;
-                            dmStartbtn.Image = PM.Properties.Resources.iconmonstr_media_control_48_48__1_;
-                            dmStartbtn.BackColor = Color.FromArgb(50, 49, 69);
+                            ////버튼상태변환 
+                            //dmStopbtn.Enabled = false;
+                            //dmStopbtn.Image = PM.Properties.Resources.iconmonstr_media_control_50_48__1_;
+                            //dmStopbtn.BackColor = Color.Transparent;
+                            //dmStartbtn.Enabled = true;
+                            //dmStartbtn.Image = PM.Properties.Resources.iconmonstr_media_control_48_48__1_;
+                            //dmStartbtn.BackColor = Color.FromArgb(50, 49, 69);
+
                             drivelbl.Text = "   " + textBox1.Text.Substring(0, 1);
 
-                            timer2.Stop();
-                            dmflag = false;
-                            deletedelaylbl.Text = "동작 대기중...";
+                            // 현재 설정창에 표시될 정보
+                            FileInfo fidm = new FileInfo(System.Windows.Forms.Application.StartupPath + @"\DM.txt");
+                            if (fidm.Exists)
+                            {
+                                try
+                                {
+                                    string[] value = System.IO.File.ReadAllLines(fidm.ToString());
+                                    textBox1.Text = value[0];
+                                    mgntlbl3.Text = value[0];
+                                    Percentlbl.Text = value[1] + " %";
+                                    Daylbl.Text = value[2] + " 일";
+                                    if (capaRbtn2.Checked == true)
+                                    {
+                                        capaRbtn.Checked = true;
+                                    }
+                                    else if (dayRbtn2.Checked == true)
+                                    {
+                                        dayRbtn.Checked = true;
+                                    }
+                                }
+                                catch   
+                                { }
+                            }
+
+
+                            //timer2.Stop();
+                            //dmflag = false;
+                            //deletedelaylbl.Text = "동작 대기중...";
                             Thread.Sleep(100);
                         }
 
@@ -1921,11 +1992,13 @@ namespace PM
             }
         }
 
+
+        // DM시작 버튼 클릭시 이벤트
         static int fcount;
         bool dmflag = false;
         public void dmStartbtn_Click(object sender, EventArgs e)
         {
-            button3_Click(sender, e);
+            //button3_Click(sender, e);
 
             var drive = new DriveInfo("C");
             int percent = 0;
@@ -1943,11 +2016,14 @@ namespace PM
                 
                 DirectoryInfo di = new DirectoryInfo(DirPath);
                 FileInfo fi = new FileInfo(FilePath);
+                
 
                 string DMaddress = "";
 
                 try
                 {
+                    FileInfo fi2 = new FileInfo(System.Windows.Forms.Application.StartupPath + @"\DM.txt");
+                    string[] value = System.IO.File.ReadAllLines(fi2.ToString());
                     if (!di.Exists) Directory.CreateDirectory(DirPath);
                     if (fi.Exists)
                     {
@@ -1964,12 +2040,11 @@ namespace PM
                         fcount = 1;
                         //DirFileSearch(textBox1.Text, "jpg");
 
-                        FileInfo fi2 = new FileInfo(System.Windows.Forms.Application.StartupPath + @"\DM.txt");
+                        
                         if (fi2.Exists)
                         {
                             try
                             {
-                                string[] value = System.IO.File.ReadAllLines(fi2.ToString());
                                 DMaddress = value[0];
                                 expire = Int32.Parse(value[2]);
                                 
@@ -1979,6 +2054,14 @@ namespace PM
                                     sw.WriteLine(value[1]);
                                     sw.WriteLine(value[2]);
                                     sw.WriteLine("1");
+                                    if(capaRbtn.Checked == true)
+                                    {
+                                        sw.WriteLine("0");
+                                    }
+                                    else if(dayRbtn.Checked == true)
+                                    {
+                                        sw.WriteLine("1");
+                                    }
                                     sw.Close();
                                 }
                             }
@@ -2001,7 +2084,7 @@ namespace PM
                     MessageBox.Show(ex.Message);
                 }
             }
-            else if(String.IsNullOrWhiteSpace(textBox1.Text))
+            else if(String.IsNullOrWhiteSpace(mgntlbl3.Text))
             {
                 SystemSounds.Beep.Play();
                 MessageBox.Show("관리폴더를 설정해주세요.");
@@ -2009,10 +2092,12 @@ namespace PM
         }
 
         
+        //dmStopbtn 
         public void dmStopbtn_Click(object sender, EventArgs e)
         {
             string DirPath = Environment.CurrentDirectory;
             string FilePath = DirPath + "\\DM" + ".txt";
+            string[] value = System.IO.File.ReadAllLines(FilePath);
 
             dmStopbtn.Enabled = false;
             dmStopbtn.Image = PM.Properties.Resources.iconmonstr_media_control_50_48__1_;
@@ -2028,20 +2113,27 @@ namespace PM
 
             try
             {
-                string[] value = System.IO.File.ReadAllLines(FilePath.ToString());
-
+                //스탑버튼인대 왜 다시 저장합ㅇ-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 using (StreamWriter sw = new StreamWriter(FilePath))
                 {
                     sw.WriteLine(value[0]);
                     sw.WriteLine(value[1]);
                     sw.WriteLine(value[2]);
                     sw.WriteLine("0");
+                    if (capaRbtn.Checked == true)
+                    {
+                        sw.WriteLine("0");
+                    }
+                    else if (dayRbtn.Checked == true)
+                    {
+                        sw.WriteLine("1");
+                    }
                     sw.Close();
                 }
             }
             catch { }
 
-              
+
         }
 
         ////특정시간에 특정이벤트를 종료하기위한 이벤트
@@ -2081,9 +2173,13 @@ namespace PM
                     }
                 }
                 if (dmflag == true)
+                {
                     deletedelaylbl.Text = "삭제 중...";
+                }
                 else
+                {
                     deletedelaylbl.Text = "동작 대기중...";
+                }
                 //Thread.Sleep(10000); //각 드라이브 용량정보 가져오는게 2초마다이므로 용량정보 가져오기전에 비교하면 다삭제해버리니 이렇게 안전장치를 설치한다.
 
                 string DMaddress;
@@ -2148,58 +2244,26 @@ namespace PM
 
 
                     //기간 단위 삭제방식 ---------------------------------------------
-                    foreach (string f in files2)
+                    if (dayRbtn.Checked == true)
                     {
-                        var info = new FileInfo(f);
-                        //MessageBox.Show(info.Name);
-                        DateTime now = DateTime.Now;
-                        TimeSpan time = now - info.CreationTime;
-                        //MessageBox.Show(time.Days.ToString());
-
-                        if (Int32.Parse(time.Days.ToString()) > Int32.Parse(value[2]) && dmflag == true)//실험용으로 바로삭제시 조건은 ">= 0" 이며 원본 조건은  "> Int32.Parse(value[2])" 이다.
+                        foreach (string f in dirList)
                         {
-                            DeleteLogWrite(f + "를 삭제하였습니다.");
+                            var info = new DirectoryInfo(f);
+                            DateTime now = DateTime.Now;
+                            TimeSpan time = now - info.CreationTime;
 
-                            info.Delete();
+                            if (Int32.Parse(time.Days.ToString()) > Int32.Parse(value[2]) && dmflag == true && dayRbtn.Checked == true) //실험용으로 바로삭제시 조건은 ">= 0" 이며 원본 조건은  "> Int32.Parse(value[2])" 이다.
+                            {
+                                info.Delete(true);
+                                DeleteLogWrite(f + "를 삭제하였습니다.");
+                                lboxlog.Items.Add(f + "를 삭제하였습니다.");
+                                if (lboxlog.Items.Count > 1000)
+                                {
+                                    lboxlog.Items.RemoveAt(0);
+                                }
+                                lboxlog.SelectedIndex = lboxlog.Items.Count - 1;
+                            }
                         }
-                        //if (drive == "C")
-                        //{
-                        //    //용량초과시 문답무용 삭제
-                        //    if(progressBarC.Value > capacity && dmflag == true)
-                        //    {
-                        //        DeleteLogWrite(f + "를 삭제하였습니다.");
-
-                        //        info.Delete();
-
-                        //        continue;
-                        //    }
-                        //    //용량초과는 안했지만 날짜가 지나면 삭제
-                        //    else if (Int32.Parse(time.Days.ToString()) > Int32.Parse(value[2]) && dmflag == true)//실험용으로 바로삭제시 조건은 ">= 0" 이며 원본 조건은  "> Int32.Parse(value[2])" 이다.
-                        //    {
-                        //        DeleteLogWrite(f + "를 삭제하였습니다.");
-
-                        //        info.Delete();
-                        //    }
-
-                        //}
-                        //else if (drive == "D")
-                        //{
-                        //    //용량초과시 문답무용 삭제
-                        //    if (progressBarD.Value > capacity && dmflag == true)
-                        //    {
-                        //        DeleteLogWrite(f + "를 삭제하였습니다.");
-
-                        //        info.Delete();
-                        //        continue;
-                        //    }
-                        //    //용량초과는 안했지만 날짜가 지나면 삭제
-                        //    else if (Int32.Parse(time.Days.ToString()) > Int32.Parse(value[2]) && dmflag == true)//실험용으로 바로삭제시 조건은 ">= 0" 이며 원본 조건은  "> Int32.Parse(value[2])" 이다.
-                        //    {
-                        //        DeleteLogWrite(f + "를 삭제하였습니다.");
-
-                        //        info.Delete();
-                        //    }
-                        //}
                     }
                     //기간단위 삭제방식 끝 ---------------------------------------------------
 
@@ -2234,21 +2298,25 @@ namespace PM
                                 file.Attributes = FileAttributes.Normal;
                             }
 
-                            foreach (string f in files)
-                            {
-                                DeleteLogWrite(f + "를 삭제하였습니다.");
-                            }
-
+                            DeleteLogWrite(di + "를 삭제하였습니다.");
                             di.Delete(true);
+
+                            lboxlog.Items.Add(di + "를 삭제하였습니다.");
+                            if (lboxlog.Items.Count > 1000)
+                            {
+                                lboxlog.Items.RemoveAt(0);
+                            }
+                            lboxlog.SelectedIndex = lboxlog.Items.Count - 1;
+
                             //MessageBox.Show("삭제되는 폴더 경로 : " + di.FullName); //삭제경로확인용
-                            
+
                             fullpath = oldestFolder.Split('\\');
                             try
                             {
                                 deviceidx = fullpath.Length - 5;
                                 
                                 //위에서 삭제한 디렉토리 바탕으로 디바이스번호만 바꾸어가며 삭제
-                                for (int i = 2; i < 50; i++)    //디바이스 50개까지
+                                for (int i = 2; i < 100; i++)    //디바이스 50개까지
                                 {
                                     try
                                     { 
@@ -2270,15 +2338,17 @@ namespace PM
                                         DirectoryInfo dii = new DirectoryInfo(fulpath);
                                         if(progressBarC.Value > capacity && dmflag == true)
                                         {
-                                            string[] filess = Directory.GetFiles(fulpath);
-                                            foreach (string f in filess)
-                                            {
-                                                DeleteLogWrite(f + "를 삭제하였습니다.");
-                                            }
-
                                             if (dmflag == true)
                                             {
                                                 dii.Delete(true);
+                                                DeleteLogWrite(dii + "를 삭제하였습니다.");
+
+                                                lboxlog.Items.Add(dii + "를 삭제하였습니다.");
+                                                if (lboxlog.Items.Count > 1000)
+                                                {
+                                                    lboxlog.Items.RemoveAt(0);
+                                                }
+                                                lboxlog.SelectedIndex = lboxlog.Items.Count - 1;
                                                 //MessageBox.Show("삭제되는 폴더 경로 : " + dii.FullName); //삭제경로확인용
                                             }
                                         }
@@ -2308,12 +2378,15 @@ namespace PM
                                 file.Attributes = FileAttributes.Normal;
                             }
 
-                            foreach (string f in files)
-                            {
-                                DeleteLogWrite(f + "를 삭제하였습니다.");
-                            }
-
+                            DeleteLogWrite(di + "를 삭제하였습니다.");
                             di.Delete(true);
+
+                            lboxlog.Items.Add(di + "를 삭제하였습니다.");
+                            if (lboxlog.Items.Count > 1000)
+                            {
+                                lboxlog.Items.RemoveAt(0);
+                            }
+                            lboxlog.SelectedIndex = lboxlog.Items.Count - 1;
                             //MessageBox.Show("삭제되는 폴더 경로 : " + di.FullName); //삭제경로확인용
 
                             fullpath = oldestFolder.Split('\\');
@@ -2322,7 +2395,7 @@ namespace PM
                                 deviceidx = fullpath.Length - 5;
 
                                 //위에서 삭제한 디렉토리 바탕으로 디바이스번호만 바꾸어가며 삭제
-                                for (int i = 2; i < 50; i++)
+                                for (int i = 2; i < 100; i++)
                                 {
                                     try
                                     {
@@ -2345,14 +2418,18 @@ namespace PM
                                         if (progressBarD.Value > capacity && dmflag == true) // 1대신 capacity 적어라
                                         {
                                             string[] filess = Directory.GetFiles(fulpath);
-                                            foreach (string f in filess)
-                                            {
-                                                DeleteLogWrite(f + "를 삭제하였습니다.");
-                                            }
-
+                                            
                                             if (dmflag == true)
                                             {
+                                                DeleteLogWrite(dii + "를 삭제하였습니다.");
                                                 dii.Delete(true);
+
+                                                lboxlog.Items.Add(dii + "를 삭제하였습니다.");
+                                                if (lboxlog.Items.Count > 1000)
+                                                {
+                                                    lboxlog.Items.RemoveAt(0);
+                                                }
+                                                lboxlog.SelectedIndex = lboxlog.Items.Count - 1;
                                                 //MessageBox.Show("삭제되는 폴더 경로 : " + dii.FullName); //삭제경로확인용
                                             }
                                         }
@@ -2494,6 +2571,90 @@ namespace PM
                 { }
             }
             DirFileSearch(DMaddress, "jpg", expire);
+        }
+
+        private void capaRbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FileInfo fii1 = new FileInfo(System.Windows.Forms.Application.StartupPath + @"\DM.txt");
+                string DirPath = Environment.CurrentDirectory;
+                string FilePath = DirPath + "\\DM" + ".txt";
+                if (fii1.Exists)
+                {
+                    try
+                    {
+                        string[] value = System.IO.File.ReadAllLines(fii1.ToString());
+
+                        using (StreamWriter sw = new StreamWriter(FilePath))
+                        {
+                            sw.WriteLine(value[0]);
+                            sw.WriteLine(value[1]);
+                            sw.WriteLine(value[2]);
+                            sw.WriteLine("1");
+                            if (capaRbtn.Checked == true)
+                            {
+                                sw.WriteLine("0");
+                            }
+                            else if (dayRbtn.Checked == true)
+                            {
+                                sw.WriteLine("1");
+                            }
+                            sw.Close();
+                        }
+
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+            catch
+            { }
+            
+        }
+
+        private void dayRbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FileInfo fii1 = new FileInfo(System.Windows.Forms.Application.StartupPath + @"\DM.txt");
+                string DirPath = Environment.CurrentDirectory;
+                string FilePath = DirPath + "\\DM" + ".txt";
+                if (fii1.Exists)
+                {
+                    try
+                    {
+                        string[] value = System.IO.File.ReadAllLines(fii1.ToString());
+                        using (StreamWriter sw = new StreamWriter(FilePath))
+                        {
+                            sw.WriteLine(value[0]);
+                            sw.WriteLine(value[1]);
+                            sw.WriteLine(value[2]);
+                            sw.WriteLine("1");
+                            if (capaRbtn.Checked == true)
+                            {
+                                sw.WriteLine("0");
+                            }
+                            else if (dayRbtn.Checked == true)
+                            {
+                                sw.WriteLine("1");
+                            }
+                            sw.Close();
+                        }
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+            catch
+            { }
+
+        }
+        private void lboxlog_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lboxlog.TopIndex = lboxlog.Items.Count;
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
