@@ -68,6 +68,7 @@
             this.btnRevise = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -108,7 +109,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -578,6 +578,16 @@
             this.tabPage2.Text = "   DM";
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(591, 335);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(406, 25);
+            this.label16.TabIndex = 45;
+            this.label16.Text = " (설정 가능 범위)    용량 : 10 ~ 95%    일 : 1 ~ 150일";
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -771,7 +781,7 @@
             this.lboxlog.ForeColor = System.Drawing.Color.AliceBlue;
             this.lboxlog.FormattingEnabled = true;
             this.lboxlog.ItemHeight = 20;
-            this.lboxlog.Location = new System.Drawing.Point(3, 179);
+            this.lboxlog.Location = new System.Drawing.Point(3, 393);
             this.lboxlog.Name = "lboxlog";
             this.lboxlog.ScrollAlwaysVisible = true;
             this.lboxlog.Size = new System.Drawing.Size(530, 100);
@@ -783,7 +793,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Goldenrod;
-            this.label11.Location = new System.Drawing.Point(208, 154);
+            this.label11.Location = new System.Drawing.Point(228, 366);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(70, 24);
             this.label11.TabIndex = 45;
@@ -793,7 +803,7 @@
             // 
             this.dayRbtn.AutoSize = true;
             this.dayRbtn.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dayRbtn.Location = new System.Drawing.Point(280, 108);
+            this.dayRbtn.Location = new System.Drawing.Point(291, 108);
             this.dayRbtn.Name = "dayRbtn";
             this.dayRbtn.Size = new System.Drawing.Size(62, 29);
             this.dayRbtn.TabIndex = 40;
@@ -806,7 +816,7 @@
             this.capaRbtn.AutoSize = true;
             this.capaRbtn.Checked = true;
             this.capaRbtn.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.capaRbtn.Location = new System.Drawing.Point(89, 108);
+            this.capaRbtn.Location = new System.Drawing.Point(100, 108);
             this.capaRbtn.Name = "capaRbtn";
             this.capaRbtn.Size = new System.Drawing.Size(62, 29);
             this.capaRbtn.TabIndex = 39;
@@ -820,7 +830,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label7.Location = new System.Drawing.Point(107, 310);
+            this.label7.Location = new System.Drawing.Point(107, 169);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 23);
             this.label7.TabIndex = 40;
@@ -851,7 +861,7 @@
             this.deletedelaylbl.AutoSize = true;
             this.deletedelaylbl.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.deletedelaylbl.ForeColor = System.Drawing.Color.Goldenrod;
-            this.deletedelaylbl.Location = new System.Drawing.Point(55, 343);
+            this.deletedelaylbl.Location = new System.Drawing.Point(42, 221);
             this.deletedelaylbl.Name = "deletedelaylbl";
             this.deletedelaylbl.Size = new System.Drawing.Size(137, 19);
             this.deletedelaylbl.TabIndex = 35;
@@ -864,7 +874,7 @@
             this.dmStopbtn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dmStopbtn.Image = global::PM.Properties.Resources.iconmonstr_media_control_50_48;
             this.dmStopbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.dmStopbtn.Location = new System.Drawing.Point(319, 400);
+            this.dmStopbtn.Location = new System.Drawing.Point(306, 279);
             this.dmStopbtn.Name = "dmStopbtn";
             this.dmStopbtn.Size = new System.Drawing.Size(156, 82);
             this.dmStopbtn.TabIndex = 20;
@@ -880,7 +890,7 @@
             this.dmStartbtn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dmStartbtn.Image = global::PM.Properties.Resources.iconmonstr_media_control_48_48__1_;
             this.dmStartbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.dmStartbtn.Location = new System.Drawing.Point(49, 400);
+            this.dmStartbtn.Location = new System.Drawing.Point(36, 279);
             this.dmStartbtn.Name = "dmStartbtn";
             this.dmStartbtn.Size = new System.Drawing.Size(156, 82);
             this.dmStartbtn.TabIndex = 19;
@@ -905,7 +915,7 @@
             this.Daylbl.AutoSize = true;
             this.Daylbl.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Daylbl.ForeColor = System.Drawing.Color.Goldenrod;
-            this.Daylbl.Location = new System.Drawing.Point(349, 111);
+            this.Daylbl.Location = new System.Drawing.Point(359, 111);
             this.Daylbl.Name = "Daylbl";
             this.Daylbl.Size = new System.Drawing.Size(48, 24);
             this.Daylbl.TabIndex = 16;
@@ -916,7 +926,7 @@
             this.Dlabel.AutoSize = true;
             this.Dlabel.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Dlabel.ForeColor = System.Drawing.Color.AliceBlue;
-            this.Dlabel.Location = new System.Drawing.Point(481, 354);
+            this.Dlabel.Location = new System.Drawing.Point(468, 233);
             this.Dlabel.Name = "Dlabel";
             this.Dlabel.Size = new System.Drawing.Size(34, 24);
             this.Dlabel.TabIndex = 29;
@@ -927,7 +937,7 @@
             this.Percentlbl.AutoSize = true;
             this.Percentlbl.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Percentlbl.ForeColor = System.Drawing.Color.Goldenrod;
-            this.Percentlbl.Location = new System.Drawing.Point(157, 111);
+            this.Percentlbl.Location = new System.Drawing.Point(168, 111);
             this.Percentlbl.Name = "Percentlbl";
             this.Percentlbl.Size = new System.Drawing.Size(48, 24);
             this.Percentlbl.TabIndex = 14;
@@ -938,7 +948,7 @@
             this.Clabel.AutoSize = true;
             this.Clabel.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clabel.ForeColor = System.Drawing.Color.AliceBlue;
-            this.Clabel.Location = new System.Drawing.Point(481, 318);
+            this.Clabel.Location = new System.Drawing.Point(468, 197);
             this.Clabel.Name = "Clabel";
             this.Clabel.Size = new System.Drawing.Size(34, 24);
             this.Clabel.TabIndex = 28;
@@ -949,7 +959,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label15.Location = new System.Drawing.Point(330, 282);
+            this.label15.Location = new System.Drawing.Point(317, 161);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(132, 29);
             this.label15.TabIndex = 27;
@@ -957,7 +967,7 @@
             // 
             // progressBarC
             // 
-            this.progressBarC.Location = new System.Drawing.Point(316, 318);
+            this.progressBarC.Location = new System.Drawing.Point(303, 197);
             this.progressBarC.Name = "progressBarC";
             this.progressBarC.Size = new System.Drawing.Size(159, 24);
             this.progressBarC.TabIndex = 23;
@@ -967,7 +977,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label14.Location = new System.Drawing.Point(289, 354);
+            this.label14.Location = new System.Drawing.Point(276, 233);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(22, 24);
             this.label14.TabIndex = 26;
@@ -975,7 +985,7 @@
             // 
             // progressBarD
             // 
-            this.progressBarD.Location = new System.Drawing.Point(316, 354);
+            this.progressBarD.Location = new System.Drawing.Point(303, 233);
             this.progressBarD.Name = "progressBarD";
             this.progressBarD.Size = new System.Drawing.Size(159, 24);
             this.progressBarD.TabIndex = 24;
@@ -985,7 +995,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label13.Location = new System.Drawing.Point(289, 318);
+            this.label13.Location = new System.Drawing.Point(276, 197);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(22, 24);
             this.label13.TabIndex = 25;
@@ -1044,16 +1054,6 @@
             // 
             this.timer2.Interval = 60000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(591, 335);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(406, 25);
-            this.label16.TabIndex = 45;
-            this.label16.Text = " (설정 가능 범위)    용량 : 10 ~ 95%    일 : 1 ~ 150일";
             // 
             // Form1
             // 
